@@ -7,6 +7,7 @@ namespace Summons.Scripts.Data
     [CreateAssetMenu(menuName = "Scriptable Object/Game Config", fileName = "game")]
     public class GameConfig : ScriptableObject
     {
+        public TasksConfig tasksConfig;
         [Header("Scenes"), Scene] public string titleScene = "Title";
         [Scene] public string creditsScene = "Credits";
         [Scene] public string gameOverScene = "GameOver";

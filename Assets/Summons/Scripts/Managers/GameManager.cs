@@ -18,6 +18,7 @@ namespace Summons.Scripts.Managers
 
             _gameConfig = configuration.gameConfig;
             AudioManager.Initialize(_gameConfig.audioConfig, audioSource);
+            TaskManager.Reset(_gameConfig.tasksConfig);
 
             _initialized = true;
             Debug.Log("Initialized.");
