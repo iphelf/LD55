@@ -36,6 +36,7 @@ namespace Summons.Scripts.Managers
 
         public static void StartGame()
         {
+            SceneManager.LoadScene(_gameConfig.gameScene);
         }
 
         public static void OpenCredits()

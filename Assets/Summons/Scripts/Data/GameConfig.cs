@@ -11,6 +11,7 @@ namespace Summons.Scripts.Data
         public PlacesConfig placesConfig;
         [Header("Scenes"), Scene] public string titleScene = "Title";
         [Scene] public string creditsScene = "Credits";
+        [Scene] public string gameScene = "Game";
         [Scene] public string gameOverScene = "GameOver";
         [Space] public AudioConfig audioConfig;
     }
