@@ -1,0 +1,24 @@
+﻿@startuml
+'https://plantuml.com/state-diagram
+
+skinparam DefaultFontName Sarasa Gothic SC
+hide empty description
+
+state "标题界面" as Title
+[*] --> Title
+
+state "游戏" as Game
+Game: 位置
+Game: 小游戏
+Game: 对话
+
+Title -> Game
+Game -> Title
+
+state "结束界面" as GameOver
+Game --> GameOver
+GameOver -> Title
+
+Title --> [*]
+
+@enduml

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Summons.Scripts.ViewCtrls
 {
     /// 在进入游戏前完成初始化
-    public class PotentialGameEntry : MonoBehaviour
+    public class PotentialGameEntryCtrl : MonoBehaviour
     {
         [SerializeField] private Configuration configuration;
         [SerializeField] private AudioSource audioSource;
