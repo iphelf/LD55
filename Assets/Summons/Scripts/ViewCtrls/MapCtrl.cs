@@ -1,17 +1,41 @@
+using Summons.Scripts.Models;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls
 {
     public class MapCtrl : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private GameObject content;
+        [SerializeField] private Button goHome;
+        [SerializeField] private Button goToSchool;
+        [SerializeField] private Button goToShop;
+        [SerializeField] private Button goToInterest;
+        [SerializeField] private Button toggle;
+        public UnityEvent<PlaceType> onHeadForPlace;
+
+        private void Start()
         {
+            goHome.onClick.AddListener(() => onHeadForPlace.Invoke(PlaceType.Home));
+            goToSchool.onClick.AddListener(() => onHeadForPlace.Invoke(PlaceType.School));
+            goToShop.onClick.AddListener(() => onHeadForPlace.Invoke(PlaceType.Shop));
+            goToInterest.onClick.AddListener(() => onHeadForPlace.Invoke(PlaceType.Interest));
+            toggle.onClick.AddListener(() =>
+            {
+                if (content.activeSelf) Hide();
+                else Show();
+            });
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Show()
         {
+            content.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            content.SetActive(false);
         }
     }
 }

@@ -14,7 +14,8 @@ namespace Summons.Scripts.SceneCtrls
 
         private void Start()
         {
-            mapCtrl.gameObject.SetActive(false);
+            mapCtrl.onHeadForPlace.AddListener(placeType => { placeManager.Load(placeType); });
+            mapCtrl.Hide();
             summonCtrl.gameObject.SetActive(false);
             dialogsCtrl.gameObject.SetActive(false);
         }

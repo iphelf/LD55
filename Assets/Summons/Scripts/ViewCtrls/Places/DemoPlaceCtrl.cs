@@ -12,7 +12,6 @@ namespace Summons.Scripts.ViewCtrls.Places
 
         public override void OnEnterPlace(PlaceState state = null)
         {
-            Debug.Log("Place Entered");
             if (state is PlaceStateOfDemoPlace placeStateOfDemoPlace)
             {
                 bool hidden = placeStateOfDemoPlace.Hidden;
@@ -25,7 +24,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         {
             return new PlaceStateOfDemoPlace
             {
-                Hidden = contentA.activeSelf
+                Hidden = !contentA.activeSelf
             };
         }
 

@@ -41,7 +41,7 @@ namespace Summons.Scripts.Managers
             {
                 state = _currentPlaceCtrl.OnExitPlace();
                 _placeStates[Current] = state;
-                Destroy(_currentPlaceCtrl);
+                Destroy(_currentPlaceCtrl.gameObject);
             }
 
             state = _placeStates.GetValueOrDefault(placeType, null);
