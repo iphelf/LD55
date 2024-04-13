@@ -4,17 +4,17 @@
     {
         None = 0,
 
-        // Place.Home
+        // PlaceType.Home
         WipeStains = 11,
         OrganizeStuff = 12,
 
-        // Place.School
+        // PlaceType.School
         DoAssignment = 21,
 
-        // Place.Shop
+        // PlaceType.Shop
         PurchaseItem = 31,
 
-        // Place.Interest
+        // PlaceType.Interest
         PracticeVolleyball = 41,
     }
 }

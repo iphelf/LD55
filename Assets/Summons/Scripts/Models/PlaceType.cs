@@ -1,6 +1,6 @@
 ﻿namespace Summons.Scripts.Models
 {
-    public enum Place
+    public enum PlaceType
     {
         None = 0,
         Home = 1,

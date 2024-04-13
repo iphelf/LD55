@@ -4,7 +4,7 @@ using Summons.Scripts.Models;
 
 namespace Summons.Scripts.Managers
 {
-    public class TaskManager
+    public static class TaskManager
     {
         private static Dictionary<int, Task> _taskDict;
 

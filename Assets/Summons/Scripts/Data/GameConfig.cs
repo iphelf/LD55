@@ -8,6 +8,7 @@ namespace Summons.Scripts.Data
     public class GameConfig : ScriptableObject
     {
         public TasksConfig tasksConfig;
+        public PlacesConfig placesConfig;
         [Header("Scenes"), Scene] public string titleScene = "Title";
         [Scene] public string creditsScene = "Credits";
         [Scene] public string gameOverScene = "GameOver";
