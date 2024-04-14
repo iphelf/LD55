@@ -27,12 +27,12 @@ namespace Summons.Scripts.Models
         {
             return type switch
             {
-                QuestType.WipeStains => new QuestArgsOfWipeStains(),
-                QuestType.OrganizeStuff => new QuestArgsOfOrganizeStuff(),
-                QuestType.DoEnglishQuiz => new QuestArgsOfDoEnglishQuiz(),
-                QuestType.DoMathQuiz => new QuestArgsOfDoMathQuiz(),
-                QuestType.PurchaseItem => new QuestArgsOfPurchaseItem(),
-                QuestType.PracticeVolleyball => new QuestArgsOfPracticeVolleyball(),
+                QuestType.WipeStains => new QuestArgsOfWipeStains(args),
+                QuestType.OrganizeStuff => new QuestArgsOfOrganizeStuff(args),
+                QuestType.DoEnglishQuiz => new QuestArgsOfDoEnglishQuiz(args),
+                QuestType.DoMathQuiz => new QuestArgsOfDoMathQuiz(args),
+                QuestType.PurchaseItem => new QuestArgsOfPurchaseItem(args),
+                QuestType.PracticeVolleyball => new QuestArgsOfPracticeVolleyball(args),
                 _ => throw new NotImplementedException($"QuestType: {type}")
             };
         }
@@ -48,29 +48,50 @@ namespace Summons.Scripts.Models
 
     public class QuestArgs
     {
+        protected QuestArgs(string args)
+        {
+        }
     }
 
     public class QuestArgsOfWipeStains : QuestArgs
     {
+        public QuestArgsOfWipeStains(string args) : base(args)
+        {
+        }
     }
 
     public class QuestArgsOfOrganizeStuff : QuestArgs
     {
+        public QuestArgsOfOrganizeStuff(string args) : base(args)
+        {
+        }
     }
 
     public class QuestArgsOfDoEnglishQuiz : QuestArgs
     {
+        public QuestArgsOfDoEnglishQuiz(string args) : base(args)
+        {
+        }
     }
 
     public class QuestArgsOfDoMathQuiz : QuestArgs
     {
+        public QuestArgsOfDoMathQuiz(string args) : base(args)
+        {
+        }
     }
 
     public class QuestArgsOfPurchaseItem : QuestArgs
     {
+        public QuestArgsOfPurchaseItem(string args) : base(args)
+        {
+        }
     }
 
     public class QuestArgsOfPracticeVolleyball : QuestArgs
     {
+        public QuestArgsOfPracticeVolleyball(string args) : base(args)
+        {
+        }
     }
 }

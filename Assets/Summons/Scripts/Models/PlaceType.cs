@@ -6,6 +6,7 @@
         Home = 1,
         School = 2,
         Shop = 3,
-        Interest = 4
+        Interest = 4,
+        Demo = 5,
     }
 }

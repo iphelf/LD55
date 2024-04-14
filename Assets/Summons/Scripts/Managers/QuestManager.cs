@@ -19,6 +19,17 @@ namespace Summons.Scripts.Managers
         /// 当前正在倒计时的全部任务
         public static readonly List<int> OngoingQuests = new();
 
+        public static QuestInfo GetNextOngoingQuestOfType(QuestType type)
+        {
+            foreach (var id in OngoingQuests)
+            {
+                if (_questDict[id].Type == type)
+                    return new QuestInfoImpl(_questDict[id]);
+            }
+
+            return null;
+        }
+
         private static readonly Dictionary<int, int> PredCount = new(); // 尚未满足的前置条件数量
         private static readonly List<QuestData> PendingQuests = new(); // 前置条件已满足，但仍在delay
         private static readonly SortedSet<int> NewlyBegunQuests = new(); // delay已完成，即将begin
@@ -154,6 +165,7 @@ namespace Summons.Scripts.Managers
             public override float Elapsed => _data.Elapsed;
             public override float Duration => _data.Duration;
             public override string Description => _data.Description;
+            public override QuestArgs Args => _data.Args;
         }
     }
 }

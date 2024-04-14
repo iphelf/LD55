@@ -6,6 +6,7 @@
         public abstract float Elapsed { get; }
         public abstract float Duration { get; }
         public abstract string Description { get; }
+        public abstract QuestArgs Args { get; }
 
         // type
         // npc

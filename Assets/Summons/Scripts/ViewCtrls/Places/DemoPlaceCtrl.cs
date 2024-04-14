@@ -1,5 +1,6 @@
 using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
+using Summons.Scripts.ViewCtrls.MiniGames;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,29 +8,44 @@ namespace Summons.Scripts.ViewCtrls.Places
 {
     public class DemoPlaceCtrl : PlaceCtrlBase
     {
-        [SerializeField] private GameObject contentA;
-        [SerializeField] private GameObject contentB;
-
-        [SerializeField] private Button toggle;
-        [SerializeField] private Button completeQuest1;
+        [SerializeField] private GameObject statefulContent;
+        [SerializeField] private MiniGameCtrlBase miniGame;
+        [SerializeField] private Button startButton;
+        [SerializeField] private Button toggleButton;
 
         private void Start()
         {
-            toggle.onClick.AddListener(() =>
+            miniGame.gameObject.SetActive(false);
+
+            toggleButton.onClick.AddListener(() => { statefulContent.SetActive(!statefulContent.activeSelf); });
+
+            startButton.onClick.AddListener(() =>
             {
-                contentA.SetActive(!contentA.activeSelf);
-                contentB.SetActive(!contentB.activeSelf);
+                var questInfo = DetectQuestForMiniGame();
+                if (questInfo == null) return;
+                miniGame.gameObject.SetActive(true);
+                LaunchMiniGameForQuest(
+                    miniGame, questInfo, () => { miniGame.gameObject.SetActive(false); }
+                );
             });
-            completeQuest1.onClick.AddListener(() => { QuestManager.EndQuest(1); });
         }
+
+        private QuestInfo DetectQuestForMiniGame()
+        {
+            if (QuestManager.OngoingQuests.Count == 0) return null;
+            int questId = QuestManager.OngoingQuests[0];
+            var questInfo = QuestManager.GetQuestInfo(questId);
+            return questInfo;
+        }
+
+        #region 地方状态信息
 
         public override void OnEnterPlace(PlaceState state = null)
         {
             if (state is PlaceStateOfDemoPlace placeStateOfDemoPlace)
             {
-                var hidden = placeStateOfDemoPlace.Hidden;
-                contentA.SetActive(!hidden);
-                contentB.SetActive(!hidden);
+                var isPresent = placeStateOfDemoPlace.IsPresent;
+                statefulContent.SetActive(isPresent);
             }
         }
 
@@ -37,8 +53,10 @@ namespace Summons.Scripts.ViewCtrls.Places
         {
             return new PlaceStateOfDemoPlace
             {
-                Hidden = !contentA.activeSelf
+                IsPresent = statefulContent.activeSelf
             };
         }
+
+        #endregion
     }
 }

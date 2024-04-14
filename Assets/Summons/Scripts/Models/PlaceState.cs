@@ -6,6 +6,6 @@
 
     public class PlaceStateOfDemoPlace : PlaceState
     {
-        public bool Hidden;
+        public bool IsPresent;
     }
 }

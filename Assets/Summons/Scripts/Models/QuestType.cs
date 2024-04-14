@@ -16,6 +16,9 @@
         PurchaseItem = 31,
 
         // PlaceType.Interest
-        PracticeVolleyball = 41
+        PracticeVolleyball = 41,
+
+        // PlaceType.Demo
+        Demo = 51,
     }
 }
