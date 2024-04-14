@@ -17,7 +17,6 @@ namespace Summons.Scripts.SceneCtrls
         {
             mapCtrl.onHeadForPlace.AddListener(StartSummoning);
             mapCtrl.Hide();
-            dialogsCtrl.gameObject.SetActive(false);
         }
 
         private PlaceType _summonTarget;
@@ -31,6 +30,7 @@ namespace Summons.Scripts.SceneCtrls
 
         private void FinishSummoning()
         {
+            mapCtrl.Hide();
             placeManager.Load(_summonTarget);
         }
     }

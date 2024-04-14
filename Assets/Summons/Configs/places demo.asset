@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   places:
   - type: 1
-    placePrefab: {fileID: 2543918454937594003, guid: 4fca474c35e80b742b3904e947263920, type: 3}
+    placePrefab: {fileID: 2543918454937594003, guid: 4fca474c35e80b742b3904e947263920,
+      type: 3}
   - type: 3
-    placePrefab: {fileID: 2543918454937594003, guid: 4679d1a37266e9c4ba0c9a0d139331d7, type: 3}
+    placePrefab: {fileID: 2543918454937594003, guid: 4679d1a37266e9c4ba0c9a0d139331d7,
+      type: 3}
   - type: 2
-    placePrefab: {fileID: 8722552628726191700, guid: 6bdb4d4956f460c46a861354b422259e, type: 3}
+    placePrefab: {fileID: 2095613257689525483, guid: edb819a6d15302e4ead22b553aeece3f,
+      type: 3}
   - type: 4
-    placePrefab: {fileID: 7075475572636155959, guid: b32cfe7e40925474b81297917b9a2965, type: 3}
+    placePrefab: {fileID: 7075475572636155959, guid: b32cfe7e40925474b81297917b9a2965,
+      type: 3}
   startingPlace: 1

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -9,70 +8,60 @@ namespace Summons.Scripts.ViewCtrls
     {
         public UnityEvent onSummonComplete = new();
         [SerializeField] private Slider slider;
-        private bool fPressed = false;
-        private bool jPressed = false;
-        private float addvalue = 5; //总进度条为100
+        private bool _fPressed;
+        private bool _jPressed;
+        public int steps = 8;
+        public bool nextIsLeft = true;
+        private float _increment; //总进度条为100
         [SerializeField] private GameObject content;
-        [SerializeField] private GameObject map;
-        [SerializeField] private GameObject place;
+        private bool _running;
 
 
         private void Start()
         {
+            _increment = slider.maxValue / steps;
             slider.onValueChanged.AddListener(OnSliderValueChanged);
+        }
+
+        private bool StepLeft()
+        {
+            return Input.GetKeyDown(KeyCode.F);
+        }
+
+        private bool StepRight()
+        {
+            return Input.GetKeyDown(KeyCode.J);
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                fPressed = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.J))
-            {
-                jPressed = true;
-            }
+            if (!_running) return;
 
-            if (fPressed && jPressed)
+            if ((nextIsLeft && StepLeft())
+                || (!nextIsLeft && StepRight()))
             {
-                IncreaseProgress(addvalue);
-                
-                fPressed = false;
-                jPressed = false;
+                slider.value += _increment;
+                nextIsLeft = !nextIsLeft;
             }
-            
         }
 
-        void IncreaseProgress(float amount)
-        {
-            float newValue = Mathf.Clamp01(slider.value + amount / 100f);
-            slider.value = newValue;
-        }
         void OnSliderValueChanged(float value)
         {
             if (Mathf.Approximately(value, slider.maxValue))
             {
                 content.SetActive(false);
-                place.SetActive(false);
-                map.SetActive(true);
                 slider.value = 0f;
-                
+                _running = false;
 
                 onSummonComplete.Invoke();
-                
             }
         }
+
         public void Run()
         {
             content.SetActive(true);
             // 开启交互进度条
-            map.SetActive(false);
-            //关闭地图
-            
+            _running = true;
         }
     }
-
-        
-
-        
-    }
+}

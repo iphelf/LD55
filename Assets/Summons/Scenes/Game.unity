@@ -380,7 +380,7 @@ MonoBehaviour:
   dialogsCtrl: {fileID: 1745333103}
   questsCtrl: {fileID: 122904557}
   mapCtrl: {fileID: 1719222681}
-  summonCtrl: {fileID: 0}
+  summonCtrl: {fileID: 2132774638}
 --- !u!1 &905384708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1031,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef34636ed5793847b1f617083b0ae25, type: 3}
+--- !u!114 &2132774638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5701570520567811317, guid: 6d17c74212a662e499556f83401117ab, type: 3}
+  m_PrefabInstance: {fileID: 1311425447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7aaea38c4f877438f8ab4347bc2e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
