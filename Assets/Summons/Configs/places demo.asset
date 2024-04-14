@@ -18,7 +18,7 @@ MonoBehaviour:
   - type: 3
     placePrefab: {fileID: 2543918454937594003, guid: 4679d1a37266e9c4ba0c9a0d139331d7, type: 3}
   - type: 2
-    placePrefab: {fileID: 8722552628726191700, guid: 2f96602fc2f2a75458fd491fabbbc4fd, type: 3}
+    placePrefab: {fileID: 8722552628726191700, guid: 6bdb4d4956f460c46a861354b422259e, type: 3}
   - type: 2
     placePrefab: {fileID: 5752679071178368456, guid: b8cda46e793afdf458759a6e202a043c, type: 3}
   startingPlace: 1
