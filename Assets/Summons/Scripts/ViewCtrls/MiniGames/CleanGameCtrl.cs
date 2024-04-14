@@ -36,7 +36,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         private Texture2D MyTex;
         private Vector2 penultPos; //倒数第二个点
         private readonly float radius = 12f;
-        private bool startDraw;
+        // private bool startDraw;
 
 
         private Texture2D tex;
@@ -158,7 +158,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         public void OnPointerDown(PointerEventData eventData)
         {
             if (isEndEraser) return;
-            startDraw = true;
+            // startDraw = true;
             penultPos = eventData.position;
             CheckPoint(penultPos);
         }
@@ -192,7 +192,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         {
             if (isEndEraser) return;
             //CheckPoint(eventData.position);
-            startDraw = false;
+            // startDraw = false;
             twoPoints = false;
         }
 

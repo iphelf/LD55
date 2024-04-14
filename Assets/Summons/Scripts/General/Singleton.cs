@@ -12,7 +12,7 @@ namespace Summons.Scripts.General
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<T>();
+                    instance = FindFirstObjectByType<T>();
                     if (instance == null)
                     {
                         var newInstance = new GameObject();

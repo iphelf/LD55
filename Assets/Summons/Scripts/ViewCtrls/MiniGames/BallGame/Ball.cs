@@ -77,7 +77,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
             yield return new WaitForSeconds(2f);
         }
 
-        public async Awaitable RestartBall1()
+        public void RestartBall1()
         {
             gameObject.SetActive(false);
             transform.position = StartPosition;

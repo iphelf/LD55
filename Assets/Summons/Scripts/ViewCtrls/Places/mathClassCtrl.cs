@@ -82,7 +82,7 @@ namespace Summons.Scripts.ViewCtrls.Places
                 mathQuestionText.text = questionOptions[randomTextIndex];
                 answer = answerOptions[randomTextIndex];
                 return mathQuestionText.text;
-                Debug.Log("随机生成成功");
+                // Debug.Log("随机生成成功");
             }
 
             Debug.Log("选项随机失败");
