@@ -26,9 +26,9 @@ namespace Summons.Scripts.ViewCtrls.Places
         {
             if (state is PlaceStateOfDemoPlace placeStateOfDemoPlace)
             {
-                var hidden = placeStateOfDemoPlace.Hidden;
-                contentA.SetActive(!hidden);
-                contentB.SetActive(!hidden);
+                var isPresent = placeStateOfDemoPlace.IsPresent;
+                contentA.SetActive(isPresent);
+                contentB.SetActive(isPresent);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         {
             return new PlaceStateOfDemoPlace
             {
-                Hidden = !contentA.activeSelf
+                IsPresent = contentA.activeSelf
             };
         }
     }
