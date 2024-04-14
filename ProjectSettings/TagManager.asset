@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - DontDestroyOnLoad
+  - BookBox
+  - ToyBox
+  - ClothBox
+  - Panel
   layers:
   - Default
   - TransparentFX
@@ -42,6 +46,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 1
+  - name: background
     uniqueID: 2414473401
+    locked: 0
+  - name: Panel
+    uniqueID: 3233852049
+    locked: 0
+  - name: Player
+    uniqueID: 1825099703
+    locked: 0
+  - name: Ball
+    uniqueID: 1258057663
     locked: 0

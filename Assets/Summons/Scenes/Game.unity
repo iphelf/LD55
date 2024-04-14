@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2710646224759580465, guid: 75f9feb36e1045149aa830fe11224b3e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3994539764112430933, guid: 75f9feb36e1045149aa830fe11224b3e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -376,7 +380,7 @@ MonoBehaviour:
   dialogsCtrl: {fileID: 1745333103}
   questsCtrl: {fileID: 122904557}
   mapCtrl: {fileID: 1719222681}
-  summonCtrl: {fileID: 1311425449}
+  summonCtrl: {fileID: 0}
 --- !u!1 &905384708
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,17 +575,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7889799547128074619, guid: 6d17c74212a662e499556f83401117ab, type: 3}
   m_PrefabInstance: {fileID: 1311425447}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1311425449 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2141867816983509597, guid: 6d17c74212a662e499556f83401117ab, type: 3}
-  m_PrefabInstance: {fileID: 1311425447}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7aaea38c4f877438f8ab4347bc2e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1519097705
 GameObject:
   m_ObjectHideFlags: 0
