@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls
@@ -9,10 +10,12 @@ namespace Summons.Scripts.ViewCtrls
     
     public class ProgressBarCtrl : MonoBehaviour
     {
+        public UnityEvent onSummonComplete = new();
         [SerializeField] private Slider slider;
         private bool fPressed = false;
         private bool jPressed = false;
         private float addvalue = 5; //总进度条为100
+        [SerializeField] private GameObject content;
 
 
         private void Start()
@@ -50,7 +53,9 @@ namespace Summons.Scripts.ViewCtrls
         {
             if (Mathf.Approximately(value, slider.maxValue))
             {
-                Debug.Log("Slider is at max value!");
+                content.SetActive(false);
+                slider.value = 0f;
+                onSummonComplete.Invoke();
                 // 这里可以调用你的触发函数
             }
         }
