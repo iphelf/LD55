@@ -52,7 +52,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
         public void ShowBallGamePanel(bool status)
         {
             BallGamePanel.SetActive(status);
-            Debug.Log("点1");
+            // Debug.Log("点1");
         }
 
         public void BallGameWin()

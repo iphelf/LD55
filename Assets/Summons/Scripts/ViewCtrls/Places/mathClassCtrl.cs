@@ -54,7 +54,7 @@ namespace Summons.Scripts.ViewCtrls.Places
                 answerOptions[1] = (head - rear2).ToString();
             }
 
-            if (levelCount > 3) Debug.Log("结束游戏");
+            // if (levelCount > 3) Debug.Log("结束游戏");
 
             if (levelCount == 3)
             {
@@ -85,7 +85,7 @@ namespace Summons.Scripts.ViewCtrls.Places
                 // Debug.Log("随机生成成功");
             }
 
-            Debug.Log("选项随机失败");
+            // Debug.Log("选项随机失败");
             return null;
         }
 
@@ -102,7 +102,7 @@ namespace Summons.Scripts.ViewCtrls.Places
             if (answerText.text.Replace(" ", "") == answer)
             {
                 score++;
-                Debug.Log("答案正确");
+                // Debug.Log("答案正确");
             }
 
             if (score == 3)

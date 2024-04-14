@@ -27,7 +27,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
         private void Update()
         {
             Move();
-            Debug.Log($"({movespeedX}, {movespeedY})");
+            // Debug.Log($"({movespeedX}, {movespeedY})");
             // Debug.Log(transform.position);
             //Debug.Log(transform.localPosition);
             movespeedY -= GravityAddSpeed * Time.deltaTime;
@@ -51,7 +51,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
             if (other.CompareTag("Panel"))
             {
                 BallGameManager.Instance.SubScore(1);
-                Debug.Log("Set(False)");
+                // Debug.Log("Set(False)");
                 movespeedX = 0;
                 movespeedY = 0;
                 BallGameManager.Instance.RestartBallGame(this);

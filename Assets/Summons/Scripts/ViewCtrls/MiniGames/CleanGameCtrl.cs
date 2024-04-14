@@ -143,7 +143,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
             {
                 isEndEraser = true;
                 //CancelInvoke("getTransparentPercent");
-                Debug.Log("挑战成功");
+                // Debug.Log("挑战成功");
 
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 uiTex.gameObject.SetActive(false);

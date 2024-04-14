@@ -24,22 +24,22 @@ namespace Summons.Scripts.ViewCtrls.Places
             if (Input.anyKeyDown)
             {
                 var keyPressed = Input.inputString.ToLower();
-                Debug.Log("玩家按下了键：" + keyPressed);
+                // Debug.Log("玩家按下了键：" + keyPressed);
                 if (keyPressed[0] == answer[0])
                 {
                     answer = answer.Remove(0, 1);
-                    Debug.Log(changeText.text);
+                    // Debug.Log(changeText.text);
                     changeText.text = inputsum + keyPressed;
                     inputsum += keyPressed;
                 }
 
                 if (answer.Length == 0)
                 {
-                    Debug.Log("通关");
+                    // Debug.Log("通关");
                     level++;
                     changeText.text = "";
                     Initialize();
-                    if (level == 3) Debug.Log("结束");
+                    // if (level == 3) Debug.Log("结束");
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace Summons.Scripts.ViewCtrls.Places
                 return questionText.text;
             }
 
-            Debug.LogWarning("No text to show.");
+            // Debug.LogWarning("No text to show.");
             return " ";
         }
 
@@ -86,11 +86,11 @@ namespace Summons.Scripts.ViewCtrls.Places
             changeText.color = Color.black;
             answer = ShowRandomText(level);
             //changeText.text = ShowRandomText();
-            Debug.Log("题目：");
-            Debug.Log(changeText.text);
+            // Debug.Log("题目：");
+            // Debug.Log(changeText.text);
             //answer = changeText.text.ToLower();
-            Debug.Log("查找answer");
-            Debug.Log(answer);
+            // Debug.Log("查找answer");
+            // Debug.Log(answer);
         }
     }
 }
