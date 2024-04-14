@@ -17,6 +17,9 @@ namespace Summons.Scripts.ViewCtrls
         //结束事件
         public Action eraserEndEvent;
         public RawImage uiTex;
+        
+        
+
         Texture2D tex;
         Texture2D MyTex;
         int mWidth;
@@ -40,6 +43,8 @@ namespace Summons.Scripts.ViewCtrls
             colorA = 0;
             isEndEraser = false;
             isStartEraser = false;
+            
+
         }
         /// <summary>
         /// 贝塞尔平滑
@@ -165,16 +170,24 @@ namespace Summons.Scripts.ViewCtrls
             if (isEndEraser) { return; }
             fate = colorA / maxColorA * 100;
             fate = (float)Math.Round(fate, 2);
-            Debug.Log("当前百分比: " + fate);
             if (fate >= rate)
             {
                 isEndEraser = true;
-                CancelInvoke("getTransparentPercent");
+                //CancelInvoke("getTransparentPercent");
+                Debug.Log("挑战成功");
+                
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 uiTex.gameObject.SetActive(false);
                 //触发结束事件
                 if (eraserEndEvent != null)
                     eraserEndEvent.Invoke();
             }
         }
+        
+        
+        
+        
+
     }
+    
 }
