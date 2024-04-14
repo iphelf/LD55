@@ -1,3 +1,4 @@
+using System;
 using Summons.Scripts.Managers;
 using UnityEngine;
 
@@ -9,6 +10,12 @@ namespace Summons.Scripts.ViewCtrls
         {
             QuestManager.OnQuestBegin.AddListener(OnQuestBegin);
             QuestManager.OnQuestEnd.AddListener(OnQuestEnd);
+        }
+
+        private void OnDestroy()
+        {
+            QuestManager.OnQuestBegin.RemoveListener(OnQuestBegin);
+            QuestManager.OnQuestEnd.RemoveListener(OnQuestEnd);
         }
 
         private void OnQuestBegin(int id)

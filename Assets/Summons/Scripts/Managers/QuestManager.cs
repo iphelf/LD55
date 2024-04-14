@@ -26,6 +26,8 @@ namespace Summons.Scripts.Managers
         {
             _questDict = config.ToQuestDict();
 
+            OnQuestBegin.RemoveAllListeners();
+            OnQuestEnd.RemoveAllListeners();
             OngoingQuests.Clear();
 
             PredCount.Clear();
