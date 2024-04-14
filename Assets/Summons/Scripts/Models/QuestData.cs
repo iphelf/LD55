@@ -8,15 +8,15 @@ namespace Summons.Scripts.Models
         public readonly int Id;
         public readonly List<QuestData> Predecessors = new();
         public readonly List<QuestData> Successors = new();
+        public QuestArgs Args;
         public float Delay;
+        public string Description;
 
         public float Duration;
         public float Elapsed = 0.0f;
+        public QuestResult Result;
 
         public QuestType Type;
-        public QuestArgs Args;
-        public string Description;
-        public QuestResult Result;
 
         public QuestData(int id)
         {
@@ -33,7 +33,7 @@ namespace Summons.Scripts.Models
                 QuestType.DoMathQuiz => new QuestArgsOfDoMathQuiz(),
                 QuestType.PurchaseItem => new QuestArgsOfPurchaseItem(),
                 QuestType.PracticeVolleyball => new QuestArgsOfPracticeVolleyball(),
-                _ => throw new NotImplementedException($"QuestType: {type}"),
+                _ => throw new NotImplementedException($"QuestType: {type}")
             };
         }
     }
@@ -43,7 +43,7 @@ namespace Summons.Scripts.Models
         None = 0,
         Timeout = 1,
         Aborted = 2,
-        Success = 3,
+        Success = 3
     }
 
     public class QuestArgs

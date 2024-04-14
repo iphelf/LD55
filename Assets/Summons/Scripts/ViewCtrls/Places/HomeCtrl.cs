@@ -1,5 +1,4 @@
 using Summons.Scripts.Managers;
-using Summons.Scripts.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,15 +35,9 @@ namespace Summons.Scripts.ViewCtrls.Places
         {
             contentA.SetActive(false);
             contentB.SetActive(false);
-            
-            clean.onClick.AddListener(() =>
-            {
-                contentA.SetActive(!contentA.activeSelf);
-            });
-            box.onClick.AddListener(() =>
-            {
-                contentB.SetActive(!contentB.activeSelf);
-            });
+
+            clean.onClick.AddListener(() => { contentA.SetActive(!contentA.activeSelf); });
+            box.onClick.AddListener(() => { contentB.SetActive(!contentB.activeSelf); });
             canvas.worldCamera = Camera.main;
             completeQuest1.onClick.AddListener(() => { QuestManager.EndQuest(1); });
         }

@@ -9,7 +9,7 @@ namespace Summons.Scripts.Data
     {
         public QuestsConfig questsConfig;
         public PlacesConfig placesConfig;
-        [Header("Scenes"), Scene] public string titleScene = "Title";
+        [Header("Scenes")] [Scene] public string titleScene = "Title";
         [Scene] public string creditsScene = "Credits";
         [Scene] public string gameScene = "Game";
         [Scene] public string gameOverScene = "GameOver";

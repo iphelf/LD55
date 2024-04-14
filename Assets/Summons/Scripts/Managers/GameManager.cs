@@ -10,6 +10,15 @@ namespace Summons.Scripts.Managers
         private static bool _initialized;
         private static GameConfig _gameConfig;
 
+        #region Credits
+
+        public static void CloseCreditsAndOpenTitle()
+        {
+            SceneManager.LoadScene(_gameConfig.titleScene);
+        }
+
+        #endregion
+
         #region (Anywhere)
 
         public static void InitializeGameOnce(Configuration configuration, AudioSource audioSource)
@@ -42,15 +51,6 @@ namespace Summons.Scripts.Managers
         public static void OpenCredits()
         {
             SceneManager.LoadScene(_gameConfig.creditsScene);
-        }
-
-        #endregion
-
-        #region Credits
-
-        public static void CloseCreditsAndOpenTitle()
-        {
-            SceneManager.LoadScene(_gameConfig.titleScene);
         }
 
         #endregion

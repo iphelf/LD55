@@ -12,7 +12,7 @@ namespace Summons.Scripts.SceneCtrls
         [SerializeField] private Button quitButton;
         [SerializeField] private TextMeshProUGUI score;
 
-        void Start()
+        private void Start()
         {
             restartButton.onClick.AddListener(GameManager.RestartGame);
             menuButton.onClick.AddListener(GameManager.ReturnToTitle);

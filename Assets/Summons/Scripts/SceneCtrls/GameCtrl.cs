@@ -1,6 +1,7 @@
 using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using Summons.Scripts.ViewCtrls;
+using Summons.Scripts.ViewCtrls.GameModules;
 using UnityEngine;
 
 namespace Summons.Scripts.SceneCtrls
@@ -13,13 +14,13 @@ namespace Summons.Scripts.SceneCtrls
         [SerializeField] private MapCtrl mapCtrl;
         [SerializeField] private SummonCtrl summonCtrl;
 
+        private PlaceType _summonTarget;
+
         private void Start()
         {
             mapCtrl.onHeadForPlace.AddListener(StartSummoning);
             mapCtrl.Hide();
         }
-
-        private PlaceType _summonTarget;
 
         private void StartSummoning(PlaceType placeType)
         {

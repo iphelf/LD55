@@ -8,6 +8,18 @@ namespace Summons.Scripts.Data
     [CreateAssetMenu(menuName = "Scriptable Object/Quests Config", fileName = "quests")]
     public class QuestsConfig : ScriptableObject
     {
+        public List<QuestEntry> quests;
+
+        public SortedDictionary<int, QuestData> ToQuestDict()
+        {
+            List<QuestEntry> sortedQuests = new(quests);
+            sortedQuests.Sort((a, b) => a.id.CompareTo(b.id));
+            SortedDictionary<int, QuestData> questDict = new();
+            foreach (var entry in sortedQuests)
+                questDict.Add(entry.id, entry.ToQuest(questDict));
+            return questDict;
+        }
+
         [Serializable]
         public class QuestEntry
         {
@@ -22,7 +34,7 @@ namespace Summons.Scripts.Data
             public QuestData ToQuest(SortedDictionary<int, QuestData> questDict)
             {
                 QuestData quest = new(id);
-                foreach (int predecessor in predecessors)
+                foreach (var predecessor in predecessors)
                 {
                     var preQuest = questDict[predecessor];
                     quest.Predecessors.Add(preQuest);
@@ -36,18 +48,6 @@ namespace Summons.Scripts.Data
                 quest.Description = description;
                 return quest;
             }
-        }
-
-        public List<QuestEntry> quests;
-
-        public SortedDictionary<int, QuestData> ToQuestDict()
-        {
-            List<QuestEntry> sortedQuests = new(quests);
-            sortedQuests.Sort((a, b) => a.id.CompareTo(b.id));
-            SortedDictionary<int, QuestData> questDict = new();
-            foreach (QuestEntry entry in sortedQuests)
-                questDict.Add(entry.id, entry.ToQuest(questDict));
-            return questDict;
         }
     }
 }

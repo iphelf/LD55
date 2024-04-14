@@ -6,10 +6,10 @@ namespace Summons.Scripts.General
     {
         public static void RemoveBatch<T>(List<T> list, IEnumerable<int> sortedIndices)
         {
-            int i = 0;
-            int j = 0;
-            int removed = 0;
-            foreach (int toRemove in sortedIndices)
+            var i = 0;
+            var j = 0;
+            var removed = 0;
+            foreach (var toRemove in sortedIndices)
             {
                 while (i < list.Count)
                 {

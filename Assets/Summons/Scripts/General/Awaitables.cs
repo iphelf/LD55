@@ -11,6 +11,9 @@ namespace Summons.Scripts.General
      */
     public static class Awaitables
     {
+        private static readonly FieldInfo __continuationFieldInfo =
+            typeof(Awaitable).GetField("_continuation", BindingFlags.NonPublic | BindingFlags.Instance);
+
         //! Gets an Awaitable that has already completed successfully.
         public static Awaitable CompletedAwaitable
         {
@@ -32,7 +35,7 @@ namespace Summons.Scripts.General
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             static async Awaitable __AwaitAll(params Awaitable[] awaitables)
             {
-                for (int i = 0; i < awaitables.Length; i++)
+                for (var i = 0; i < awaitables.Length; i++)
                 {
                     Debug.Assert(awaitables[i] != null);
                     await awaitables[i];
@@ -42,7 +45,7 @@ namespace Summons.Scripts.General
             if (awaitables.Length == 0)
             {
 #if UNITY_EDITOR
-                Debug.LogWarning($"Performance warning : awaiting an empty array of Awaitable");
+                Debug.LogWarning("Performance warning : awaiting an empty array of Awaitable");
 #endif
                 return CompletedAwaitable;
             }
@@ -65,7 +68,7 @@ namespace Summons.Scripts.General
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             static async Awaitable __AwaitAny(params Awaitable[] awaitables)
             {
-                AwaitableCompletionSource awaited = new AwaitableCompletionSource();
+                var awaited = new AwaitableCompletionSource();
 
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 async Awaitable __WaitCompletion(Awaitable awaitable)
@@ -78,7 +81,7 @@ namespace Summons.Scripts.General
                     }
                 }
 
-                for (int i = 0; i < awaitables.Length; i++)
+                for (var i = 0; i < awaitables.Length; i++)
                 {
                     Debug.Assert(awaitables[i] != null);
                     Run(__WaitCompletion(awaitables[i]));
@@ -91,7 +94,7 @@ namespace Summons.Scripts.General
             if (awaitables.Length == 0)
             {
 #if UNITY_EDITOR
-                Debug.LogWarning($"Performance warning : awaiting an empty array of Awaitable");
+                Debug.LogWarning("Performance warning : awaiting an empty array of Awaitable");
 #endif
                 return CompletedAwaitable;
             }
@@ -102,12 +105,11 @@ namespace Summons.Scripts.General
             return __AwaitAny(awaitables);
         }
 
-        static FieldInfo __continuationFieldInfo =
-            typeof(Awaitable).GetField("_continuation", BindingFlags.NonPublic | BindingFlags.Instance);
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static bool __HasContinuation(Awaitable awaitable)
-            => __continuationFieldInfo.GetValue(awaitable) != null;
+        private static bool __HasContinuation(Awaitable awaitable)
+        {
+            return __continuationFieldInfo.GetValue(awaitable) != null;
+        }
 
         //! Runs an Awaitable without awaiting for it.
         //! On completion, rethrow any exception raised during execution.
@@ -155,11 +157,9 @@ namespace Summons.Scripts.General
 
                 return __AwaitAndContinue();
             }
-            else
-            {
-                continuation();
-                return self;
-            }
+
+            continuation();
+            return self;
         }
 
         //! Set a continuation, executed once the Awaitable has completed.
@@ -180,7 +180,10 @@ namespace Summons.Scripts.General
                     awaiter.GetResult();
                 });
             }
-            else continuation();
+            else
+            {
+                continuation();
+            }
         }
 
         // For debugging purpose only:

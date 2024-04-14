@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace Summons.Scripts.Managers
 {
     /// 控制任务的开始和结束
-    static class QuestManager
+    internal static class QuestManager
     {
         private static SortedDictionary<int, QuestData> _questDict;
 
@@ -66,7 +66,7 @@ namespace Summons.Scripts.Managers
 
         private static void UpdateStatesByLastFrameInput()
         {
-            for (int i = OngoingQuests.Count - 1; i >= 0; --i)
+            for (var i = OngoingQuests.Count - 1; i >= 0; --i)
                 if (ManualEndingQuests.Contains(OngoingQuests[i]))
                 {
                     NewlyEndedQuests.Add(OngoingQuests[i]);
@@ -80,7 +80,7 @@ namespace Summons.Scripts.Managers
         {
             ElapsedTime += deltaTime;
 
-            for (int i = PendingQuests.Count - 1; i >= 0; --i)
+            for (var i = PendingQuests.Count - 1; i >= 0; --i)
             {
                 var quest = PendingQuests[i];
                 quest.Elapsed += deltaTime;
@@ -93,7 +93,7 @@ namespace Summons.Scripts.Managers
                 }
             }
 
-            for (int i = OngoingQuests.Count - 1; i >= 0; --i)
+            for (var i = OngoingQuests.Count - 1; i >= 0; --i)
             {
                 var quest = _questDict[OngoingQuests[i]];
                 quest.Elapsed += deltaTime;
@@ -107,7 +107,7 @@ namespace Summons.Scripts.Managers
 
         private static void SendEventsAndHandleCallbacks()
         {
-            foreach (int questId in NewlyBegunQuests)
+            foreach (var questId in NewlyBegunQuests)
             {
                 OngoingQuests.Add(questId);
                 OnQuestBegin.Invoke(questId);
@@ -115,7 +115,7 @@ namespace Summons.Scripts.Managers
 
             NewlyBegunQuests.Clear();
 
-            foreach (int questId in NewlyEndedQuests)
+            foreach (var questId in NewlyEndedQuests)
             {
                 OnQuestEnd.Invoke(questId);
                 foreach (var successor in _questDict[questId].Successors)
@@ -136,21 +136,24 @@ namespace Summons.Scripts.Managers
         }
 
         /// 获取任务信息。如果不够的话，可以在这里补充信息，例如任务类型、召唤位置、召唤人
-        public static QuestInfo GetQuestInfo(int id) => new QuestInfoImpl(_questDict[id]);
+        public static QuestInfo GetQuestInfo(int id)
+        {
+            return new QuestInfoImpl(_questDict[id]);
+        }
 
         private class QuestInfoImpl : QuestInfo
         {
             private readonly QuestData _data;
 
-            public override int Id => _data.Id;
-            public override float Elapsed => _data.Elapsed;
-            public override float Duration => _data.Duration;
-            public override string Description => _data.Description;
-
             public QuestInfoImpl(QuestData data)
             {
                 _data = data;
             }
+
+            public override int Id => _data.Id;
+            public override float Elapsed => _data.Elapsed;
+            public override float Duration => _data.Duration;
+            public override string Description => _data.Description;
         }
     }
 }

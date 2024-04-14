@@ -7,13 +7,13 @@ namespace Summons.Scripts.Managers
     public enum SfxKey
     {
         None = 0,
-        ButtonNormal = 1,
+        ButtonNormal = 1
     }
 
     public enum MusicKey
     {
         None = 0,
-        Title = 1,
+        Title = 1
     }
 
     public static class AudioManager

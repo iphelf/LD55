@@ -2,6 +2,7 @@
 using Summons.Scripts.Data;
 using Summons.Scripts.Models;
 using Summons.Scripts.ViewCtrls;
+using Summons.Scripts.ViewCtrls.Places;
 using UnityEngine;
 
 namespace Summons.Scripts.Managers
@@ -10,9 +11,14 @@ namespace Summons.Scripts.Managers
     {
         private static readonly Dictionary<PlaceType, GameObject> PlacePrefabDict = new();
         private static PlaceType _startingPlace;
-        public static PlaceType Current { get; private set; }
-        private PlaceCtrlBase _currentPlaceCtrl;
         private readonly Dictionary<PlaceType, PlaceState> _placeStates = new();
+        private PlaceCtrlBase _currentPlaceCtrl;
+        public static PlaceType Current { get; private set; }
+
+        public void Start()
+        {
+            Load(_startingPlace);
+        }
 
         public static void Initialize(PlacesConfig config)
         {
@@ -22,18 +28,13 @@ namespace Summons.Scripts.Managers
             Current = PlaceType.None;
         }
 
-        public void Start()
-        {
-            Load(_startingPlace);
-        }
-
         public void Load(PlaceType placeType)
         {
             if (Current == placeType) return;
 
-            GameObject placePrefab = PlacePrefabDict[placeType];
-            GameObject instance = Instantiate(placePrefab, transform);
-            PlaceCtrlBase placeCtrl = instance.GetComponent<PlaceCtrlBase>();
+            var placePrefab = PlacePrefabDict[placeType];
+            var instance = Instantiate(placePrefab, transform);
+            var placeCtrl = instance.GetComponent<PlaceCtrlBase>();
 
             PlaceState state;
 
