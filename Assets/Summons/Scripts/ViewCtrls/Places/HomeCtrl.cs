@@ -1,3 +1,4 @@
+using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         [SerializeField] private GameObject contentB;
         [SerializeField] private Button button;
         [SerializeField] private Canvas canvas;
+        [SerializeField] private Button completeQuest1;
 
         public override void OnEnterPlace(PlaceState state = null)
         {
@@ -37,6 +39,7 @@ namespace Summons.Scripts.ViewCtrls.Places
                 contentB.SetActive(!contentB.activeSelf);
             });
             canvas.worldCamera = Camera.main;
+            completeQuest1.onClick.AddListener(() => { QuestManager.EndQuest(1); });
         }
     }
 }

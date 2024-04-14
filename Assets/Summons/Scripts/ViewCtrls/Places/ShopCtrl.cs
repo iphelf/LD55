@@ -1,3 +1,4 @@
+using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         [SerializeField] private GameObject contentA;
         [SerializeField] private GameObject contentB;
         [SerializeField] private Button button;
+        [SerializeField] private Button completeQuest1;
 
         public override void OnEnterPlace(PlaceState state = null)
         {
@@ -35,6 +37,7 @@ namespace Summons.Scripts.ViewCtrls.Places
                 contentA.SetActive(!contentA.activeSelf);
                 contentB.SetActive(!contentB.activeSelf);
             });
+            completeQuest1.onClick.AddListener(() => { QuestManager.EndQuest(1); });
         }
     }
 }
