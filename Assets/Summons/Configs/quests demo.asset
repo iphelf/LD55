@@ -16,18 +16,21 @@ MonoBehaviour:
   - id: 0
     predecessors: 
     delay: 1
-    duration: 1
+    duration: 3
     type: 11
     args: 
+    description: Home
   - id: 1
     predecessors: 
     delay: 2
     duration: 3
     type: 11
     args: 
+    description: School
   - id: 2
     predecessors: 0000000001000000
     delay: 0
     duration: 2
     type: 11
     args: 
+    description: Interest

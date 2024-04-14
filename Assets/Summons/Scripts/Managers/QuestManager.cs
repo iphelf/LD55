@@ -145,6 +145,7 @@ namespace Summons.Scripts.Managers
             public override int Id => _data.Id;
             public override float Elapsed => _data.Elapsed;
             public override float Duration => _data.Duration;
+            public override string Description => _data.Description;
 
             public QuestInfoImpl(QuestData data)
             {

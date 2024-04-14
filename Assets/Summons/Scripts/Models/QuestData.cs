@@ -15,6 +15,7 @@ namespace Summons.Scripts.Models
 
         public QuestType Type;
         public QuestArgs Args;
+        public string Description;
         public QuestResult Result;
 
         public QuestData(int id)

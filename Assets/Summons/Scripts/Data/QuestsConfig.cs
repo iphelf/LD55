@@ -17,6 +17,7 @@ namespace Summons.Scripts.Data
             public float duration;
             public QuestType type;
             public string args;
+            public string description;
 
             public QuestData ToQuest(SortedDictionary<int, QuestData> questDict)
             {
@@ -32,6 +33,7 @@ namespace Summons.Scripts.Data
                 quest.Duration = duration;
                 quest.Type = type;
                 quest.Args = QuestData.ParseArgs(type, args);
+                quest.Description = description;
                 return quest;
             }
         }
