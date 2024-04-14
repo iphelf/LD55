@@ -13,7 +13,7 @@ namespace Summons.Scripts.ViewCtrls
         [SerializeField] private Button goToShop;
         [SerializeField] private Button goToInterest;
         [SerializeField] private Button toggle;
-        public UnityEvent<PlaceType> onHeadForPlace;
+        public UnityEvent<PlaceType> onHeadForPlace = new();
 
         private void Start()
         {

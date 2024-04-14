@@ -1,6 +1,6 @@
 ﻿namespace Summons.Scripts.Models
 {
-    public enum TaskType
+    public enum QuestType
     {
         None = 0,
 
