@@ -13,12 +13,14 @@ namespace Summons.Scripts.ViewCtrls
 
         private void OnQuestBegin(int id)
         {
-            Debug.Log($"Quest {id} begins at {QuestManager.ElapsedTime}.");
+            var quest = QuestManager.GetQuestInfo(id);
+            Debug.Log($"Quest {id} ({quest.Duration}) begins at {QuestManager.ElapsedTime}.");
         }
 
         private void OnQuestEnd(int id)
         {
-            Debug.Log($"Quest {id} ends at {QuestManager.ElapsedTime}.");
+            var quest = QuestManager.GetQuestInfo(id);
+            Debug.Log($"Quest {id} ({quest.Duration}) ends at {QuestManager.ElapsedTime}.");
         }
 
         private void Update()

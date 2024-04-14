@@ -12,7 +12,7 @@ namespace Summons.Scripts.Managers
 
         public static readonly UnityEvent<int> OnQuestBegin = new();
         public static readonly UnityEvent<int> OnQuestEnd = new();
-        public static readonly List<QuestData> OngoingQuests = new();
+        public static readonly List<int> OngoingQuests = new();
 
         private static readonly Dictionary<int, int> PredCount = new(); // 尚未满足的前置条件数量
         private static readonly List<QuestData> PendingQuests = new(); // 前置条件已满足，但仍在delay
@@ -58,10 +58,10 @@ namespace Summons.Scripts.Managers
         private static void UpdateStatesByLastFrameInput()
         {
             for (int i = OngoingQuests.Count - 1; i >= 0; --i)
-                if (ManualEndingQuests.Contains(OngoingQuests[i].Id))
+                if (ManualEndingQuests.Contains(OngoingQuests[i]))
                 {
+                    NewlyEndedQuests.Add(OngoingQuests[i]);
                     OngoingQuests.RemoveAt(i);
-                    NewlyEndedQuests.Add(OngoingQuests[i].Id);
                 }
 
             ManualEndingQuests.Clear();
@@ -86,7 +86,7 @@ namespace Summons.Scripts.Managers
 
             for (int i = OngoingQuests.Count - 1; i >= 0; --i)
             {
-                var quest = OngoingQuests[i];
+                var quest = _questDict[OngoingQuests[i]];
                 quest.Elapsed += deltaTime;
                 if (quest.Elapsed >= quest.Duration)
                 {
@@ -100,7 +100,7 @@ namespace Summons.Scripts.Managers
         {
             foreach (int questId in NewlyBegunQuests)
             {
-                OngoingQuests.Add(_questDict[questId]);
+                OngoingQuests.Add(questId);
                 OnQuestBegin.Invoke(questId);
             }
 
@@ -125,6 +125,8 @@ namespace Summons.Scripts.Managers
         {
             ManualEndingQuests.Add(id);
         }
+
+        public static QuestInfo GetQuestInfo(int id) => new QuestInfoImpl(_questDict[id]);
 
         private class QuestInfoImpl : QuestInfo
         {
