@@ -1,6 +1,6 @@
 ﻿namespace Summons.Scripts.Models
 {
-    public abstract class TaskInfo
+    public abstract class QuestInfo
     {
         public abstract int Id { get; }
         public abstract float Elapsed { get; }

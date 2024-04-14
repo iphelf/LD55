@@ -1,5 +1,6 @@
 ﻿using Summons.Scripts.General;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Summons.Scripts.Data
 {
@@ -7,7 +8,7 @@ namespace Summons.Scripts.Data
     [CreateAssetMenu(menuName = "Scriptable Object/Game Config", fileName = "game")]
     public class GameConfig : ScriptableObject
     {
-        public TasksConfig tasksConfig;
+        public QuestsConfig questsConfig;
         public PlacesConfig placesConfig;
         [Header("Scenes"), Scene] public string titleScene = "Title";
         [Scene] public string creditsScene = "Credits";

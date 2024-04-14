@@ -1,6 +1,7 @@
 using Summons.Scripts.Managers;
 using Summons.Scripts.ViewCtrls;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Summons.Scripts.SceneCtrls
 {
@@ -8,7 +9,7 @@ namespace Summons.Scripts.SceneCtrls
     {
         [SerializeField] private PlaceManager placeManager;
         [SerializeField] private DialogsCtrl dialogsCtrl;
-        [SerializeField] private TasksCtrl tasksCtrl;
+        [FormerlySerializedAs("tasksCtrl")] [SerializeField] private QuestsCtrl questsCtrl;
         [SerializeField] private MapCtrl mapCtrl;
         [SerializeField] private SummonCtrl summonCtrl;
 
