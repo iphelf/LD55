@@ -165,6 +165,7 @@ namespace Summons.Scripts.Managers
             public override float Elapsed => _data.Elapsed;
             public override float Duration => _data.Duration;
             public override string Description => _data.Description;
+            public override QuestType Type => _data.Type;
             public override QuestArgs Args => _data.Args;
         }
     }
