@@ -16,21 +16,126 @@ MonoBehaviour:
   - id: 0
     predecessors: 
     delay: 1
-    duration: 3
-    type: 11
+    duration: 30
+    type: 12
     args: 
     description: Home
   - id: 1
-    predecessors: 
-    delay: 2
-    duration: 3
-    type: 11
+    predecessors: 00000000
+    delay: 0
+    duration: 20
+    type: 21
     args: 
     description: School
   - id: 2
-    predecessors: 0000000001000000
+    predecessors: 00000000
     delay: 0
-    duration: 2
+    duration: 30
+    type: 22
+    args: 
+    description: School
+  - id: 3
+    predecessors: 0100000002000000
+    delay: 0
+    duration: 30
     type: 11
+    args: 
+    description: Interest
+  - id: 4
+    predecessors: 0200000001000000
+    delay: 0
+    duration: 40
+    type: 41
+    args: 
+    description: Interest
+  - id: 5
+    predecessors: 03000000
+    delay: 0
+    duration: 30
+    type: 21
+    args: 
+    description: Interest
+  - id: 6
+    predecessors: 05000000
+    delay: 40
+    duration: 30
+    type: 21
+    args: 
+    description: Interest
+  - id: 7
+    predecessors: 05000000
+    delay: 0
+    duration: 40
+    type: 31
+    args: 
+    description: Interest
+  - id: 8
+    predecessors: 03000000
+    delay: 60
+    duration: 30
+    type: 11
+    args: 
+    description: Interest
+  - id: 9
+    predecessors: 08000000
+    delay: 30
+    duration: 60
+    type: 11
+    args: 
+    description: Interest
+  - id: 10
+    predecessors: 08000000
+    delay: 0
+    duration: 40
+    type: 31
+    args: 
+    description: Interest
+  - id: 11
+    predecessors: 04000000
+    delay: 0
+    duration: 30
+    type: 22
+    args: 
+    description: Interest
+  - id: 12
+    predecessors: 0b000000
+    delay: 0
+    duration: 40
+    type: 31
+    args: 
+    description: Interest
+  - id: 13
+    predecessors: 0b000000
+    delay: 30
+    duration: 30
+    type: 22
+    args: 
+    description: Interest
+  - id: 14
+    predecessors: 04000000
+    delay: 0
+    duration: 60
+    type: 12
+    args: 
+    description: Interest
+  - id: 15
+    predecessors: 0e000000
+    delay: 0
+    duration: 60
+    type: 12
+    args: 
+    description: Interest
+  - id: 16
+    predecessors: 04000000
+    delay: 60
+    duration: 60
+    type: 41
+    args: 
+    description: Interest
+  - id: 17
+    predecessors: 10000000
+    delay: 30
+    duration: 60
+    type: 41
     args: 
     description: Interest
