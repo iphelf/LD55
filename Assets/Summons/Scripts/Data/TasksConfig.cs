@@ -18,26 +18,31 @@ namespace Summons.Scripts.Data
             public TaskType type;
             public string args;
 
-            public Task ToTask(Dictionary<int, Task> taskDict)
+            public TaskData ToTask(SortedDictionary<int, TaskData> taskDict)
             {
-                Task task = new(id);
+                TaskData task = new(id);
                 foreach (int predecessor in predecessors)
-                    task.Predecessors.Add(taskDict[predecessor]);
+                {
+                    var preTask = taskDict[predecessor];
+                    task.Predecessors.Add(preTask);
+                    preTask.Successors.Add(task);
+                }
+
                 task.Delay = delay;
                 task.Duration = duration;
                 task.Type = type;
-                task.Args = Task.ParseArgs(type, args);
+                task.Args = TaskData.ParseArgs(type, args);
                 return task;
             }
         }
 
         public List<TaskEntry> tasks;
 
-        public Dictionary<int, Task> ToTaskDict()
+        public SortedDictionary<int, TaskData> ToTaskDict()
         {
             List<TaskEntry> sortedTasks = new(tasks);
             sortedTasks.Sort((a, b) => a.id.CompareTo(b.id));
-            Dictionary<int, Task> taskDict = new();
+            SortedDictionary<int, TaskData> taskDict = new();
             foreach (TaskEntry entry in sortedTasks)
                 taskDict.Add(entry.id, entry.ToTask(taskDict));
             return taskDict;

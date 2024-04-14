@@ -1,17 +1,29 @@
+using Summons.Scripts.Managers;
 using UnityEngine;
 
 namespace Summons.Scripts.ViewCtrls
 {
     public class TasksCtrl : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
+            TaskManager.OnTaskBegin.AddListener(OnTaskBegin);
+            TaskManager.OnTaskEnd.AddListener(OnTaskEnd);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnTaskBegin(int id)
         {
+            Debug.Log($"Task {id} begins at {TaskManager.ElapsedTime}.");
+        }
+
+        private void OnTaskEnd(int id)
+        {
+            Debug.Log($"Task {id} ends at {TaskManager.ElapsedTime}.");
+        }
+
+        private void Update()
+        {
+            TaskManager.Update(Time.deltaTime);
         }
     }
 }
