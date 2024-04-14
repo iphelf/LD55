@@ -16,5 +16,6 @@ MonoBehaviour:
   placesConfig: {fileID: 11400000, guid: 79a9b13c6c1d7154fa9d6c52abca2b67, type: 2}
   titleScene: Title
   creditsScene: Credits
-  gameOverScene: GameOver
+  gameScene: Game
+  gameOverScene: 
   audioConfig: {fileID: 11400000, guid: b80ecd56139a9b54dad932b631b9cabf, type: 2}

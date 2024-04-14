@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   places:
   - type: 1
-    placePrefab: {fileID: 3688704724280054974, guid: 12aca0ae5a896464bb21743dc9ebfcd9, type: 3}
-  - type: 2
-    placePrefab: {fileID: 3688704724280054974, guid: 12aca0ae5a896464bb21743dc9ebfcd9, type: 3}
+    placePrefab: {fileID: 2543918454937594003, guid: 4fca474c35e80b742b3904e947263920, type: 3}
+  - type: 3
+    placePrefab: {fileID: 2543918454937594003, guid: 4679d1a37266e9c4ba0c9a0d139331d7, type: 3}
   startingPlace: 1
