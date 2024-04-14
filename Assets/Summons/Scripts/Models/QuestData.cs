@@ -69,15 +69,21 @@ namespace Summons.Scripts.Models
 
     public class QuestArgsOfDoEnglishQuiz : QuestArgs
     {
+        public readonly int Level;
+
         public QuestArgsOfDoEnglishQuiz(string args) : base(args)
         {
+            Level = int.Parse(args);
         }
     }
 
     public class QuestArgsOfDoMathQuiz : QuestArgs
     {
+        public readonly int Level;
+
         public QuestArgsOfDoMathQuiz(string args) : base(args)
         {
+            Level = int.Parse(args);
         }
     }
 

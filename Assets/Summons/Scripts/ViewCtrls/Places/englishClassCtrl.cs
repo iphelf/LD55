@@ -1,9 +1,13 @@
+using System;
+using Summons.Scripts.Models;
+using Summons.Scripts.ViewCtrls.MiniGames;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
-    public class englishClassCtrl : PlaceCtrlBase
+    public class englishClassCtrl : MiniGameCtrlBase
     {
         [SerializeField] private TextMeshProUGUI questionText; // 显示问题的文本组件
         [SerializeField] private TextMeshProUGUI changeText;
@@ -12,6 +16,8 @@ namespace Summons.Scripts.ViewCtrls.Places
         private string answer; // 正确答案
         private string inputsum = "";
         private int level = 1;
+
+        private Action _onComplete;
 
         private void Start()
         {
@@ -36,8 +42,9 @@ namespace Summons.Scripts.ViewCtrls.Places
                 if (answer.Length == 0)
                 {
                     // Debug.Log("通关");
-                    level++;
+                    // level++;
                     changeText.text = "";
+                    _onComplete?.Invoke();
                     Initialize();
                     // if (level == 3) Debug.Log("结束");
                 }
@@ -91,6 +98,14 @@ namespace Summons.Scripts.ViewCtrls.Places
             //answer = changeText.text.ToLower();
             // Debug.Log("查找answer");
             // Debug.Log(answer);
+        }
+
+        public override void Setup(QuestArgs args, Action onComplete)
+        {
+            var questArgsOfDoEnglishQuiz = args as QuestArgsOfDoEnglishQuiz;
+            _onComplete = onComplete;
+            level = questArgsOfDoEnglishQuiz!.Level;
+            Initialize();
         }
     }
 }

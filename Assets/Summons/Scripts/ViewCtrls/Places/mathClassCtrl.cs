@@ -1,10 +1,14 @@
+using System;
+using Summons.Scripts.Models;
+using Summons.Scripts.ViewCtrls.MiniGames;
 using TMPro;
 using UnityEngine;
 using Button = UnityEngine.UI.Button;
+using Random = UnityEngine.Random;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
-    public class mathClassCtrl : PlaceCtrlBase
+    public class mathClassCtrl : MiniGameCtrlBase
     {
         [SerializeField] private TextMeshProUGUI mathQuestionText;
         [SerializeField] private TMP_InputField answerText;
@@ -16,6 +20,8 @@ namespace Summons.Scripts.ViewCtrls.Places
         private int levelmath = 1;
         private string[] questionOptions;
         private int score;
+
+        private Action _onComplete;
 
         private void Start()
         {
@@ -107,10 +113,19 @@ namespace Summons.Scripts.ViewCtrls.Places
 
             if (score == 3)
             {
-                levelmath++;
+                // levelmath++;
                 score = 0;
+                _onComplete();
             }
 
+            initialize();
+        }
+
+        public override void Setup(QuestArgs args, Action onComplete)
+        {
+            var questArgsOfDoMathQuiz = args as QuestArgsOfDoMathQuiz;
+            _onComplete = onComplete;
+            levelmath = questArgsOfDoMathQuiz!.Level;
             initialize();
         }
     }

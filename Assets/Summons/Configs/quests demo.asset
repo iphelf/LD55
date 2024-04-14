@@ -25,14 +25,14 @@ MonoBehaviour:
     delay: 0
     duration: 20
     type: 21
-    args: 
+    args: 1
     description: School
   - id: 2
     predecessors: 00000000
     delay: 0
     duration: 30
     type: 22
-    args: 
+    args: 1
     description: School
   - id: 3
     predecessors: 0100000002000000
@@ -53,14 +53,14 @@ MonoBehaviour:
     delay: 0
     duration: 30
     type: 21
-    args: 
+    args: 2
     description: Interest
   - id: 6
     predecessors: 05000000
     delay: 40
     duration: 30
     type: 21
-    args: 
+    args: 3
     description: Interest
   - id: 7
     predecessors: 05000000
@@ -95,7 +95,7 @@ MonoBehaviour:
     delay: 0
     duration: 30
     type: 22
-    args: 
+    args: 2
     description: Interest
   - id: 12
     predecessors: 0b000000
@@ -109,7 +109,7 @@ MonoBehaviour:
     delay: 30
     duration: 30
     type: 22
-    args: 
+    args: 3
     description: Interest
   - id: 14
     predecessors: 04000000
