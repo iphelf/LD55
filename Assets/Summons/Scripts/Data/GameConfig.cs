@@ -1,6 +1,5 @@
 ﻿using Summons.Scripts.General;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Summons.Scripts.Data
 {

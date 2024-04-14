@@ -10,8 +10,13 @@ namespace Summons.Scripts.Managers
     {
         private static SortedDictionary<int, QuestData> _questDict;
 
+        /// 任务开始倒计时
         public static readonly UnityEvent<int> OnQuestBegin = new();
+
+        /// 任务结束（要么倒计时结束、要么通过小游戏提前完成）
         public static readonly UnityEvent<int> OnQuestEnd = new();
+
+        /// 当前正在倒计时的全部任务
         public static readonly List<int> OngoingQuests = new();
 
         private static readonly Dictionary<int, int> PredCount = new(); // 尚未满足的前置条件数量
@@ -20,8 +25,10 @@ namespace Summons.Scripts.Managers
         private static readonly SortedSet<int> NewlyEndedQuests = new(); // 任务已完成，即将end
         private static readonly SortedSet<int> ManualEndingQuests = new(); // 手动完成任务，将进入NewlyEnded
 
+        /// 任务系统自启动以来总共运行了多少秒
         public static float ElapsedTime { get; private set; }
 
+        /// 由GameManager负责初始化/重置
         public static void Reset(QuestsConfig config)
         {
             _questDict = config.ToQuestDict();
@@ -128,6 +135,7 @@ namespace Summons.Scripts.Managers
             ManualEndingQuests.Add(id);
         }
 
+        /// 获取任务信息。如果不够的话，可以在这里补充信息，例如任务类型、召唤位置、召唤人
         public static QuestInfo GetQuestInfo(int id) => new QuestInfoImpl(_questDict[id]);
 
         private class QuestInfoImpl : QuestInfo

@@ -1,7 +1,6 @@
 using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.Places
