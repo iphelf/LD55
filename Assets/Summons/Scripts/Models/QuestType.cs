@@ -9,7 +9,8 @@
         OrganizeStuff = 12,
 
         // PlaceType.School
-        DoAssignment = 21,
+        DoEnglishQuiz = 21,
+        DoMathQuiz = 22,
 
         // PlaceType.Shop
         PurchaseItem = 31,

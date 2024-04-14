@@ -29,7 +29,8 @@ namespace Summons.Scripts.Models
             {
                 QuestType.WipeStains => new QuestArgsOfWipeStains(),
                 QuestType.OrganizeStuff => new QuestArgsOfOrganizeStuff(),
-                QuestType.DoAssignment => new QuestArgsOfDoAssignment(),
+                QuestType.DoEnglishQuiz => new QuestArgsOfDoEnglishQuiz(),
+                QuestType.DoMathQuiz => new QuestArgsOfDoMathQuiz(),
                 QuestType.PurchaseItem => new QuestArgsOfPurchaseItem(),
                 QuestType.PracticeVolleyball => new QuestArgsOfPracticeVolleyball(),
                 _ => throw new NotImplementedException($"QuestType: {type}"),
@@ -57,7 +58,11 @@ namespace Summons.Scripts.Models
     {
     }
 
-    public class QuestArgsOfDoAssignment : QuestArgs
+    public class QuestArgsOfDoEnglishQuiz : QuestArgs
+    {
+    }
+
+    public class QuestArgsOfDoMathQuiz : QuestArgs
     {
     }
 
