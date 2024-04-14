@@ -46,7 +46,7 @@ MonoBehaviour:
     delay: 0
     duration: 40
     type: 41
-    args: 
+    args: 10
     description: Interest
   - id: 5
     predecessors: 03000000
@@ -130,12 +130,12 @@ MonoBehaviour:
     delay: 60
     duration: 60
     type: 41
-    args: 
+    args: 20
     description: Interest
   - id: 17
     predecessors: 10000000
     delay: 30
     duration: 60
     type: 41
-    args: 
+    args: 30
     description: Interest

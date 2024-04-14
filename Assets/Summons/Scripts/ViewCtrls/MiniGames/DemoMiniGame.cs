@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.MiniGames
 {
-    public class DemoMiniGame : MiniGameCtrlBase
+    public class DemoMiniGame : MonoBehaviour, IMiniGameCtrl
     {
         [SerializeField] private TMP_Text questInfoText;
         [SerializeField] private Button completeButton;
@@ -21,7 +21,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
             });
         }
 
-        public override void Setup(QuestArgs args, Action onComplete)
+        public void Setup(QuestArgs args, Action onComplete)
         {
             questInfoText.text = args.GetType().Name;
             _onComplete = onComplete;

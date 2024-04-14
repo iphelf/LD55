@@ -96,8 +96,11 @@ namespace Summons.Scripts.Models
 
     public class QuestArgsOfPracticeVolleyball : QuestArgs
     {
+        public readonly int WinScore;
+
         public QuestArgsOfPracticeVolleyball(string args) : base(args)
         {
+            WinScore = int.Parse(args);
         }
     }
 }

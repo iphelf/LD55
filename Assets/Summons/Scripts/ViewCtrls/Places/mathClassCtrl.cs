@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
-    public class mathClassCtrl : MiniGameCtrlBase
+    public class mathClassCtrl : MonoBehaviour, IMiniGameCtrl
     {
         [SerializeField] private TextMeshProUGUI mathQuestionText;
         [SerializeField] private TMP_InputField answerText;
@@ -121,7 +121,7 @@ namespace Summons.Scripts.ViewCtrls.Places
             initialize();
         }
 
-        public override void Setup(QuestArgs args, Action onComplete)
+        public void Setup(QuestArgs args, Action onComplete)
         {
             var questArgsOfDoMathQuiz = args as QuestArgsOfDoMathQuiz;
             _onComplete = onComplete;

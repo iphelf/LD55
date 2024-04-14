@@ -9,7 +9,7 @@ namespace Summons.Scripts.ViewCtrls.Places
     public class DemoPlaceCtrl : PlaceCtrlBase
     {
         [SerializeField] private GameObject statefulContent;
-        [SerializeField] private MiniGameCtrlBase miniGame;
+        [SerializeField] private DemoMiniGame miniGame;
         [SerializeField] private Button startButton;
         [SerializeField] private Button toggleButton;
 

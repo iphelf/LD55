@@ -21,7 +21,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         private Action _onQuestEnd;
 
         protected void LaunchMiniGameForQuest(
-            MiniGameCtrlBase miniGameCtrl, QuestInfo questInfo, Action onQuestEnd = null)
+            IMiniGameCtrl miniGameCtrl, QuestInfo questInfo, Action onQuestEnd = null)
         {
             if (IsMiniGameRunning) return;
             IsMiniGameRunning = true;

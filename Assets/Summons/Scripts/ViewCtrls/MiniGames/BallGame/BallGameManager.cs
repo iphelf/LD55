@@ -1,23 +1,22 @@
+using System;
 using System.Collections;
 using Summons.Scripts.General;
+using Summons.Scripts.Models;
 using Summons.Scripts.ViewCtrls.Places;
 using TMPro;
 using UnityEngine;
 
 namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
 {
-    public class BallGameManager : Singleton<BallGameManager>
+    public class BallGameManager : Singleton<BallGameManager>, IMiniGameCtrl
     {
         [SerializeField] private int score;
         [SerializeField] private TextMeshProUGUI scoreTMP;
-        [SerializeField] private int winScore = 10;
+        public int winScore = 10;
 
         [SerializeField] private GameObject BallGamePanel;
 
-        // Start is called before the first frame update
-        private void Start()
-        {
-        }
+        public Action OnComplete;
 
         // Update is called once per frame
         private void Update()
@@ -59,6 +58,14 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
         {
             ShowBallGamePanel(false);
             CramSchoolManager.Instance.ShowBallGameNPCSign(false);
+            // OnComplete?.Invoke();
+        }
+
+        public void Setup(QuestArgs args, Action onComplete)
+        {
+            var questArgsOfPracticeVolleyball = args as QuestArgsOfPracticeVolleyball;
+            winScore = questArgsOfPracticeVolleyball!.WinScore;
+            OnComplete = onComplete;
         }
     }
 }

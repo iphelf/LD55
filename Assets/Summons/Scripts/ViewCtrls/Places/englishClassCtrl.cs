@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
-    public class englishClassCtrl : MiniGameCtrlBase
+    public class englishClassCtrl : MonoBehaviour, IMiniGameCtrl
     {
         [SerializeField] private TextMeshProUGUI questionText; // 显示问题的文本组件
         [SerializeField] private TextMeshProUGUI changeText;
@@ -101,7 +101,7 @@ namespace Summons.Scripts.ViewCtrls.Places
             // Debug.Log(answer);
         }
 
-        public override void Setup(QuestArgs args, Action onComplete)
+        public void Setup(QuestArgs args, Action onComplete)
         {
             var questArgsOfDoEnglishQuiz = args as QuestArgsOfDoEnglishQuiz;
             _onComplete = onComplete;
