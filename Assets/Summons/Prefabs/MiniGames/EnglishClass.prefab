@@ -266,7 +266,15 @@ MonoBehaviour:
   questionText: {fileID: 2199544748417428456}
   changeText: {fileID: 8500455988421145751}
   levelText: {fileID: 173652770862313491}
-  textOptions: []
+  textOptions:
+  - Hello
+  - Summon
+  - Failure is impossible.
+  - I cannot live without books.
+  - Without struggle, there can be no progress.
+  - Imagination is more important than knowledge.
+  - The only thing we have to fear is fear itself.
+  - Alone we can do so little; together we can do so much.
 --- !u!1 &1832506021319471751
 GameObject:
   m_ObjectHideFlags: 0

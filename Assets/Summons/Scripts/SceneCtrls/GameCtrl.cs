@@ -23,6 +23,7 @@ namespace Summons.Scripts.SceneCtrls
 
         private void StartSummoning(PlaceType placeType)
         {
+            if (placeType == PlaceManager.Current) return;
             _summonTarget = placeType;
             summonCtrl.onSummonComplete.AddListener(FinishSummoning);
             summonCtrl.Run();

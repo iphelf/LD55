@@ -74,6 +74,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         private void OnQuestEnd(int id)
         {
             if (_running?.Id != id) return;
+
             if (_running.Type == QuestType.DoEnglishQuiz)
             {
                 englishClassCtrl.gameObject.SetActive(false);
@@ -82,6 +83,8 @@ namespace Summons.Scripts.ViewCtrls.Places
             {
                 mathClassCtrl.gameObject.SetActive(false);
             }
+
+            _running = null;
         }
     }
 }

@@ -30,13 +30,14 @@ namespace Summons.Scripts.ViewCtrls.Places
             if (Input.anyKeyDown)
             {
                 var keyPressed = Input.inputString.ToLower();
+                if (keyPressed.Length == 0) return;
                 // Debug.Log("玩家按下了键：" + keyPressed);
-                if (keyPressed[0] == answer[0])
+                if (keyPressed[0] == char.ToLower(answer[0]))
                 {
+                    inputsum += answer[0];
+                    changeText.text = inputsum;
                     answer = answer.Remove(0, 1);
                     // Debug.Log(changeText.text);
-                    changeText.text = inputsum + keyPressed;
-                    inputsum += keyPressed;
                 }
 
                 if (answer.Length == 0)
