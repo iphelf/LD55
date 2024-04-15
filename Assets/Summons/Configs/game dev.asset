@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: game dev
   m_EditorClassIdentifier: 
   questsConfig: {fileID: 11400000, guid: 93550b5ee25c0ee4d9f86cda66e64dab, type: 2}
-  placesConfig: {fileID: 11400000, guid: 79a9b13c6c1d7154fa9d6c52abca2b67, type: 2}
+  placesConfig: {fileID: 11400000, guid: 93bc020213d56c1479581e8146f19fd1, type: 2}
   titleScene: Title
   creditsScene: Credits
   gameScene: Game
