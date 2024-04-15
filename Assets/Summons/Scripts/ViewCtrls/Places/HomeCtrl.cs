@@ -12,7 +12,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         [SerializeField] private BoxGameCtrl boxGameCtrl;
         [SerializeField] private Button cleanstart;
         [SerializeField] private Button boxstart;
-        private QuestInfo _running; // 若不为null，则小游戏正在运行中，且执行的是该任务
+        private QuestInfo _running; // 锟斤拷锟轿猲ull锟斤拷锟斤拷小锟斤拷戏锟斤拷锟斤拷锟斤拷锟斤拷锟叫ｏ拷锟斤拷执锟叫碉拷锟角革拷锟斤拷锟斤拷
 
         private void Start()
         {
