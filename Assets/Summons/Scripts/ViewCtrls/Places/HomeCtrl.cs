@@ -1,8 +1,8 @@
 using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
+using Summons.Scripts.ViewCtrls.GameModules;
 using Summons.Scripts.ViewCtrls.MiniGames;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
@@ -11,18 +11,16 @@ namespace Summons.Scripts.ViewCtrls.Places
         [SerializeField] private Canvas canvas;
         [SerializeField] private CleanGameCtrl cleanGameCtrl;
         [SerializeField] private BoxGameCtrl boxGameCtrl;
-        [SerializeField] private Button cleanstart;
-        [SerializeField] private Button boxstart;
-        private QuestInfo _running; // ���Ϊnull����С��Ϸ���������У���ִ�е��Ǹ�����
+        [SerializeField] private NpcCtrl father;
+        [SerializeField] private NpcCtrl mother;
+        private QuestInfo _running;
 
         private void Start()
         {
             canvas.worldCamera = Camera.main;
-            boxstart.onClick.AddListener(() =>
+            mother.onSummonRespond.AddListener(quest =>
             {
                 if (_running != null) return;
-                var quest = QuestManager.GetNextOngoingQuestOfType(QuestType.OrganizeStuff);
-                if (quest == null) return;
                 _running = quest;
                 boxGameCtrl.gameObject.SetActive(true);
                 boxGameCtrl.Setup(quest.Args, () =>
@@ -32,11 +30,9 @@ namespace Summons.Scripts.ViewCtrls.Places
                     _running = null;
                 });
             });
-            cleanstart.onClick.AddListener(() =>
+            father.onSummonRespond.AddListener(quest =>
             {
                 if (_running != null) return;
-                var quest = QuestManager.GetNextOngoingQuestOfType(QuestType.WipeStains);
-                if (quest == null) return;
                 _running = quest;
                 cleanGameCtrl.gameObject.SetActive(true);
                 cleanGameCtrl.Setup(quest.Args, () =>
@@ -53,20 +49,9 @@ namespace Summons.Scripts.ViewCtrls.Places
 
         private void Update()
         {
-            bool showsCleanEntry = false;
-            bool showsBoxEntry = false;
-            if (_running == null)
-            {
-                foreach (var id in QuestManager.OngoingQuests)
-                {
-                    var quest = QuestManager.GetQuestInfo(id);
-                    showsCleanEntry = showsCleanEntry || quest.Type == QuestType.WipeStains;
-                    showsBoxEntry = showsBoxEntry || quest.Type == QuestType.OrganizeStuff;
-                }
-            }
-
-            boxstart.gameObject.SetActive(showsBoxEntry);
-            cleanstart.gameObject.SetActive(showsCleanEntry);
+            bool allowInput = _running == null;
+            mother.Interactable = allowInput;
+            father.Interactable = allowInput;
         }
 
         private void OnDestroy()
@@ -80,7 +65,7 @@ namespace Summons.Scripts.ViewCtrls.Places
 
             if (_running.Type == QuestType.OrganizeStuff)
             {
-               boxGameCtrl.gameObject.SetActive(false);
+                boxGameCtrl.gameObject.SetActive(false);
             }
             else if (_running.Type == QuestType.WipeStains)
             {
