@@ -12,7 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806991cf75c04dadbd7e2b6e8287feef, type: 3}
   m_Name: audio demo
   m_EditorClassIdentifier: 
-  sfxList: []
+  sfxList:
+  - key: 1
+    sfx: {fileID: 8300000, guid: 2ac39733bad70514bae5bea41ce90d0b, type: 3}
+  - key: 2
+    sfx: {fileID: 8300000, guid: eceb4e42739933442a2697444d2e19df, type: 3}
+  - key: 3
+    sfx: {fileID: 8300000, guid: 44f8aee842623ae4980ad6bef3d7a439, type: 3}
+  - key: 4
+    sfx: {fileID: 8300000, guid: 34f26001450e96d47afd4a98884e8b7b, type: 3}
+  - key: 5
+    sfx: {fileID: 8300000, guid: 7b07ec19cafa11e47867960d4e13ada7, type: 3}
+  - key: 6
+    sfx: {fileID: 8300000, guid: 131faacdb52e260499e3d993fd84c282, type: 3}
+  - key: 7
+    sfx: {fileID: 8300000, guid: 1206a94353aa335458984979e611d876, type: 3}
+  - key: 8
+    sfx: {fileID: 8300000, guid: 6f4c6cdf77248a341996d747005b6112, type: 3}
+  - key: 9
+    sfx: {fileID: 8300000, guid: 5ebf3dc8ab934ed48a65221065043b6c, type: 3}
+  - key: 10
+    sfx: {fileID: 8300000, guid: 502c5e516ece3e145bd0a1594ffbc7fa, type: 3}
+  - key: 11
+    sfx: {fileID: 8300000, guid: a21af4d84d5175f4d8d3f6cd522bb24f, type: 3}
+  - key: 12
+    sfx: {fileID: 8300000, guid: f91c8619edb9cda4895f2955d7336569, type: 3}
+  - key: 13
+    sfx: {fileID: 8300000, guid: 52ae16a9caf1bf840ae0cc16e8890c9d, type: 3}
   musicList:
   - key: 1
     music: {fileID: 8300000, guid: db4671248831bd140922e5cd2cfdb286, type: 3}

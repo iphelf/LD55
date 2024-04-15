@@ -116,6 +116,8 @@ namespace Summons.Scripts.Managers
             for (var i = OngoingQuests.Count - 1; i >= 0; --i)
             {
                 var quest = _questDict[OngoingQuests[i]];
+                if ((quest.Duration - quest.Elapsed) > 5.0f && (quest.Duration - quest.Elapsed - deltaTime) <= 5.0f)
+                    AudioManager.PlaySfx(SfxKey.CountdownAlarm);
                 quest.Elapsed += deltaTime;
                 if (quest.Elapsed >= quest.Duration)
                 {
@@ -132,6 +134,7 @@ namespace Summons.Scripts.Managers
             {
                 OngoingQuests.Add(questId);
                 OnQuestBegin.Invoke(questId);
+                AudioManager.PlaySfx(SfxKey.NewQuest);
             }
 
             NewlyBegunQuests.Clear();

@@ -7,7 +7,19 @@ namespace Summons.Scripts.Managers
     public enum SfxKey
     {
         None = 0,
-        ButtonNormal = 1
+        Basketball = 1,
+        CountdownAlarm = 2,
+        MainMenuClick = 3,
+        MiniGameClick = 4,
+        MiniGameScore = 5,
+        MiniGameWin = 6,
+        MissionFail = 7,
+        NewQuest = 8,
+        RunGame = 9,
+        SceneInteractiveClick = 10,
+        TextLoop = 11,
+        TypeGameType = 12,
+        Wipe = 13,
     }
 
     public enum MusicKey
