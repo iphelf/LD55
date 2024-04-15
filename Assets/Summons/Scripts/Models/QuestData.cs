@@ -89,8 +89,11 @@ namespace Summons.Scripts.Models
 
     public class QuestArgsOfPurchaseItem : QuestArgs
     {
+        public readonly int TargetItem;
+
         public QuestArgsOfPurchaseItem(string args) : base(args)
         {
+            TargetItem = int.Parse(args);
         }
     }
 

@@ -8,10 +8,12 @@ namespace Summons.Scripts.ViewCtrls.Places
 {
     public class PlaceCtrlBase : MonoBehaviour
     {
+        /// 在Start前读档
         public virtual void OnEnterPlace(PlaceState state = null)
         {
         }
 
+        /// 在OnDestroy前存档
         public virtual PlaceState OnExitPlace()
         {
             return null;
