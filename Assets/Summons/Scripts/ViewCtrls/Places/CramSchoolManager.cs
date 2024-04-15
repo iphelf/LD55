@@ -29,7 +29,7 @@ namespace Summons.Scripts.ViewCtrls.Places
 
         public void StartBallGame()
         {
-            BallGameManager.Instance.ShowBallGamePanel(true);
+            BallGameCtrl.Instance.ShowBallGamePanel(true);
             ShowBallGameNPCSign(false);
         }
     }

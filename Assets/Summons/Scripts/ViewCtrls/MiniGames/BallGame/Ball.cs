@@ -45,16 +45,16 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
                 else movespeedX = (transform.position.x - player.transform.GetChild(0).position.x) * moveSpeed;
                 movespeedY = -moveSpeed * movespeedY;
                 //Debug.Log($"({11})");
-                BallGameManager.Instance.AddScore(1);
+                BallGameCtrl.Instance.AddScore(1);
             }
 
             if (other.CompareTag("Panel"))
             {
-                BallGameManager.Instance.SubScore(1);
+                BallGameCtrl.Instance.SubScore(1);
                 // Debug.Log("Set(False)");
                 movespeedX = 0;
                 movespeedY = 0;
-                BallGameManager.Instance.RestartBallGame(this);
+                BallGameCtrl.Instance.RestartBallGame(this);
                 gameObject.SetActive(false);
                 //StartCoroutine(RestartBall());
             }

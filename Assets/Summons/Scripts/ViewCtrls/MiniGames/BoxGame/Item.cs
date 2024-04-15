@@ -44,11 +44,11 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BoxGame
         {
             if ((type == Type.Book && other.CompareTag("BookBox")) || (type == Type.Cloth && other.CompareTag("ClothBox"))
                                                                    || (type == Type.Toy && other.CompareTag("ToyBox")))
-                BoxGameManager.Instance.AddScore(1);
+                BoxGameCtrl.Instance.AddScore(1);
             movespeedX = moveSpeed;
             movespeedY = 0;
             GravityAddSpeed = 0;
-            BoxGameManager.Instance.RestartBoxGame(this);
+            BoxGameCtrl.Instance.RestartBoxGame(this);
             gameObject.SetActive(false);
         }
 
@@ -75,7 +75,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BoxGame
         public void AddMoveSpeedX(float addspeed)
         {
             moveSpeed += addspeed;
-            ResetMoveSpeedX();
+            //ResetMoveSpeedX();
         }
     }
 }

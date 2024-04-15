@@ -9,7 +9,7 @@ namespace Summons.Scripts.ViewCtrls.Places
     public class HomeCtrl : PlaceCtrlBase
     {
         [SerializeField] private Ggl contentA;
-        //[SerializeField] private GameObject contentB;
+        [SerializeField] private BoxGameCtrl contentB;
         [SerializeField] private Button cleanstart;
         [SerializeField] private Button boxstart;
         [SerializeField] private Button hideclean;
@@ -23,10 +23,10 @@ namespace Summons.Scripts.ViewCtrls.Places
         private void Start()
         {
             contentA.gameObject.SetActive(false);
-            //contentB.SetActive(false);
+            contentB.gameObject.SetActive(false);
 
             hideclean.onClick.AddListener(() => { contentA.gameObject.SetActive(!contentA.gameObject.activeSelf); });
-            //hidebox.onClick.AddListener(() => { contentB.SetActive(!contentB.activeSelf); });
+            hidebox.onClick.AddListener(() => { contentB.gameObject.SetActive(!contentB.gameObject.activeSelf); });
             canvas.worldCamera = Camera.main;
             completeQuest1.onClick.AddListener(() => { QuestManager.EndQuest(1); });
             cleanstart.onClick.AddListener(() =>
@@ -38,15 +38,15 @@ namespace Summons.Scripts.ViewCtrls.Places
                     contentA, questInfo, () => { contentA.gameObject.SetActive(false); }
                 );
             });
-            // box.onClick.AddListener(() =>
-            // {
-            //     var questInfo = DetectQuestForMiniGame();
-            //     if (questInfo == null) return;
-            //     contentA.gameObject.SetActive(true);
-            //     LaunchMiniGameForQuest(
-            //         contentB, questInfo, () => { contentB.gameObject.SetActive(false); }
-            //     );
-            // });
+            boxstart.onClick.AddListener(() =>
+            {
+                var questInfo = DetectQuestForMiniGame();
+                if (questInfo == null) return;
+                contentB.gameObject.SetActive(true);
+                LaunchMiniGameForQuest(
+                    contentB, questInfo, () => { contentB.gameObject.SetActive(false); }
+                );
+            });
         }
         private QuestInfo DetectQuestForMiniGame()
         {
