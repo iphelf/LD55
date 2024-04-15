@@ -8,6 +8,7 @@ namespace Summons.Scripts.Data
     public class GameConfig : ScriptableObject
     {
         public int initialHp = 4;
+        public bool enableCheat = true;
 
         public QuestsConfig questsConfig;
 

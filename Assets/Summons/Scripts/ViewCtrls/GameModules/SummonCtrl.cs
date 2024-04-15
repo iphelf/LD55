@@ -1,26 +1,39 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.GameModules
 {
     public class SummonCtrl : MonoBehaviour
     {
         public UnityEvent onSummonComplete = new();
-        [SerializeField] private Slider slider;
+        [SerializeField] private GameObject head;
+        [SerializeField] private GameObject target;
+        private Vector3 _sourcePosition;
+        private Vector3 _targetPosition;
         public int steps = 8;
+        private int _currentProgress = 0;
+
+        private int CurrentProgress
+        {
+            get => _currentProgress;
+            set
+            {
+                _currentProgress = Mathf.Min(value, steps);
+                head.transform.position =
+                    _sourcePosition + (_targetPosition - _sourcePosition) / steps * _currentProgress;
+            }
+        }
+
         public bool nextIsLeft = true;
         [SerializeField] private GameObject content;
-        private bool _fPressed;
-        private float _increment; //总进度条为100
-        private bool _jPressed;
         private bool _running;
 
 
         private void Start()
         {
-            _increment = slider.maxValue / steps;
-            slider.onValueChanged.AddListener(OnSliderValueChanged);
+            _sourcePosition = head.transform.position;
+            _targetPosition = target.transform.position;
+            target.SetActive(false);
         }
 
         private void Update()
@@ -30,7 +43,16 @@ namespace Summons.Scripts.ViewCtrls.GameModules
             if ((nextIsLeft && StepLeft())
                 || (!nextIsLeft && StepRight()))
             {
-                slider.value += _increment;
+                ++CurrentProgress;
+                if (CurrentProgress >= steps)
+                {
+                    CurrentProgress = 0;
+                    content.SetActive(false);
+                    _running = false;
+
+                    onSummonComplete.Invoke();
+                }
+
                 nextIsLeft = !nextIsLeft;
             }
         }
@@ -43,18 +65,6 @@ namespace Summons.Scripts.ViewCtrls.GameModules
         private bool StepRight()
         {
             return Input.GetKeyDown(KeyCode.J);
-        }
-
-        private void OnSliderValueChanged(float value)
-        {
-            if (Mathf.Approximately(value, slider.maxValue))
-            {
-                content.SetActive(false);
-                slider.value = 0f;
-                _running = false;
-
-                onSummonComplete.Invoke();
-            }
         }
 
         public void Run()

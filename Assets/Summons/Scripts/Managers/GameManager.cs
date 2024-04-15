@@ -21,6 +21,8 @@ namespace Summons.Scripts.Managers
 
         #region (Anywhere)
 
+        public static bool IsCheatingEnabled { get; private set; }
+
         public static void InitializeGameOnce(Configuration configuration, AudioSource audioSource)
         {
             if (_initialized) return;
@@ -31,6 +33,7 @@ namespace Summons.Scripts.Managers
             PlaceManager.ResetData(_gameConfig.placesConfig);
             DialogManager.Initialize(_gameConfig.npcConfig);
             StatsManager.Initialize(_gameConfig.initialHp);
+            IsCheatingEnabled = _gameConfig.enableCheat;
 
             _initialized = true;
             Debug.Log("Initialized.");

@@ -11,6 +11,7 @@ namespace Summons.Scripts.ViewCtrls.GameModules
         [SerializeField] private Transform listRoot;
         [SerializeField] private GameObject questPrefab;
         [SerializeField] private TMP_InputField questId;
+        [SerializeField] private GameObject cheat;
         [SerializeField] private Button completeButton;
         private readonly Dictionary<int, QuestCtrl> _questCtrlDict = new();
 
@@ -18,11 +19,17 @@ namespace Summons.Scripts.ViewCtrls.GameModules
         {
             QuestManager.OnQuestBegin.AddListener(OnQuestBegin);
             QuestManager.OnQuestEnd.AddListener(OnQuestEnd);
-            completeButton.onClick.AddListener(() =>
+            if (GameManager.IsCheatingEnabled)
             {
-                var id = int.Parse(questId.text);
-                QuestManager.EndQuest(id);
-            });
+                cheat.SetActive(true);
+                completeButton.onClick.AddListener(() =>
+                {
+                    var id = int.Parse(questId.text);
+                    QuestManager.EndQuest(id);
+                });
+            }
+            else
+                cheat.SetActive(false);
         }
 
         private void Update()
