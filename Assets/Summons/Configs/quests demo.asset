@@ -17,8 +17,8 @@ MonoBehaviour:
     predecessors: 
     delay: 1
     duration: 30
-    type: 12
-    args: 
+    type: 11
+    args: 1
     description: Home
   - id: 1
     predecessors: 00000000
@@ -39,7 +39,7 @@ MonoBehaviour:
     delay: 0
     duration: 30
     type: 11
-    args: 
+    args: 1
     description: Interest
   - id: 4
     predecessors: 0200000001000000

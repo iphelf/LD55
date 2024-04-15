@@ -151,7 +151,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
 
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 Debug.Log("小游戏完成了");
-                _onComplete?.Invoke();
+                _onComplete();
                 uiTex.gameObject.SetActive(false);
                 //触发结束事件
                 if (eraserEndEvent != null)

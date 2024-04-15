@@ -1,4 +1,5 @@
 using Summons.Scripts.General;
+using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using Summons.Scripts.ViewCtrls.MiniGames;
 using Summons.Scripts.ViewCtrls.MiniGames.BallGame;
@@ -30,7 +31,7 @@ public class BallGameCtrl : Singleton<BallGameCtrl>, IMiniGameCtrl
     // Update is called once per frame
     private void Update()
     {
-        if (score > winScore) BallGameWin();
+        DetectGameOver();
         scoreTMP.text = "Score:" + score;
     }
 
@@ -65,8 +66,20 @@ public class BallGameCtrl : Singleton<BallGameCtrl>, IMiniGameCtrl
 
     public void BallGameWin()
     {
+        _onComplete();
         ShowBallGamePanel(false);
         //CramSchoolCtrl.Instance.ShowBallGameNPCSign(false);
         // OnComplete?.Invoke();
+    }
+
+
+    public void DetectGameOver()
+    {
+        if (score > winScore) BallGameWin();
+    }
+
+    public void SetQuestInfo(string quest)
+    {
+        questInfoText.text = quest;
     }
 }

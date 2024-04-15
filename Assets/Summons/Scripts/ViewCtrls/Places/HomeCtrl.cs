@@ -8,68 +8,84 @@ namespace Summons.Scripts.ViewCtrls.Places
 {
     public class HomeCtrl : PlaceCtrlBase
     {
-        [SerializeField] private Ggl contentA;
-        [SerializeField] private BoxGameCtrl contentB;
+        [SerializeField] private Ggl ggl;
+        [SerializeField] private BoxGameCtrl boxGameCtrl;
         [SerializeField] private Button cleanstart;
         [SerializeField] private Button boxstart;
-        [SerializeField] private Button hideclean;
-        [SerializeField] private Button hidebox;
-        [SerializeField] private Canvas canvas;
-        [SerializeField] private Button completeQuest1;
-        [SerializeField] private GameObject statefulContent;
-
-        
+        private QuestInfo _running; // 若不为null，则小游戏正在运行中，且执行的是该任务
 
         private void Start()
         {
-            contentA.gameObject.SetActive(false);
-            contentB.gameObject.SetActive(false);
-
-            hideclean.onClick.AddListener(() => { contentA.gameObject.SetActive(!contentA.gameObject.activeSelf); });
-            hidebox.onClick.AddListener(() => { contentB.gameObject.SetActive(!contentB.gameObject.activeSelf); });
-            canvas.worldCamera = Camera.main;
-            completeQuest1.onClick.AddListener(() => { QuestManager.EndQuest(1); });
-            cleanstart.onClick.AddListener(() =>
-            {
-                var questInfo = DetectQuestForMiniGame();
-                if (questInfo == null) return;
-                contentA.gameObject.SetActive(true);
-                LaunchMiniGameForQuest(
-                    contentA, questInfo, () => { contentA.gameObject.SetActive(false); }
-                );
-            });
             boxstart.onClick.AddListener(() =>
             {
-                var questInfo = DetectQuestForMiniGame();
-                if (questInfo == null) return;
-                contentB.gameObject.SetActive(true);
-                LaunchMiniGameForQuest(
-                    contentB, questInfo, () => { contentB.gameObject.SetActive(false); }
-                );
+                if (_running != null) return;
+                var quest = QuestManager.GetNextOngoingQuestOfType(QuestType.OrganizeStuff);
+                if (quest == null) return;
+                _running = quest;
+                boxGameCtrl.gameObject.SetActive(true);
+                boxGameCtrl.Setup(quest.Args, () =>
+                {
+                    boxGameCtrl.gameObject.SetActive(false);
+                    QuestManager.EndQuest(quest.Id);
+                    _running = null;
+                });
             });
-        }
-        private QuestInfo DetectQuestForMiniGame()
-        {
-            if (QuestManager.OngoingQuests.Count == 0) return null;
-            int questId = QuestManager.OngoingQuests[0];
-            var questInfo = QuestManager.GetQuestInfo(questId);
-            return questInfo;
-        }
-        public override void OnEnterPlace(PlaceState state = null)
-        {
-            if (state is PlaceStateOfDemoPlace placeStateOfDemoPlace)
+            cleanstart.onClick.AddListener(() =>
             {
-                var isPresent = placeStateOfDemoPlace.IsPresent;
-                statefulContent.SetActive(isPresent);
-            }
+                if (_running != null) return;
+                var quest = QuestManager.GetNextOngoingQuestOfType(QuestType.WipeStains);
+                if (quest == null) return;
+                _running = quest;
+                ggl.gameObject.SetActive(true);
+                ggl.Setup(quest.Args, () =>
+                {
+                    ggl.gameObject.SetActive(false);
+                    QuestManager.EndQuest(quest.Id);
+                    _running = null;
+                });
+            });
+            boxGameCtrl.gameObject.SetActive(false);
+            ggl.gameObject.SetActive(false);
+            QuestManager.OnQuestEnd.AddListener(OnQuestEnd);
         }
 
-        public override PlaceState OnExitPlace()
+        private void Update()
         {
-            return new PlaceStateOfDemoPlace
+            bool showsCleanEntry = false;
+            bool showsBoxEntry = false;
+            if (_running == null)
             {
-                IsPresent = statefulContent.activeSelf
-            };
+                foreach (var id in QuestManager.OngoingQuests)
+                {
+                    var quest = QuestManager.GetQuestInfo(id);
+                    showsCleanEntry = showsCleanEntry || quest.Type == QuestType.WipeStains;
+                    showsBoxEntry = showsBoxEntry || quest.Type == QuestType.OrganizeStuff;
+                }
+            }
+
+            boxstart.gameObject.SetActive(showsBoxEntry);
+            cleanstart.gameObject.SetActive(showsCleanEntry);
+        }
+
+        private void OnDestroy()
+        {
+            QuestManager.OnQuestEnd.RemoveListener(OnQuestEnd);
+        }
+
+        private void OnQuestEnd(int id)
+        {
+            if (_running?.Id != id) return;
+
+            if (_running.Type == QuestType.OrganizeStuff)
+            {
+               boxGameCtrl.gameObject.SetActive(false);
+            }
+            else if (_running.Type == QuestType.WipeStains)
+            {
+                ggl.gameObject.SetActive(false);
+            }
+
+            _running = null;
         }
     }
 }

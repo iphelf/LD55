@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
-    public class englishClassCtrl : MonoBehaviour, IMiniGameCtrl
+    public class boxGameCtrl : MonoBehaviour, IMiniGameCtrl
     {
         [SerializeField] private TextMeshProUGUI questionText; // 显示问题的文本组件
         [SerializeField] private TextMeshProUGUI changeText;

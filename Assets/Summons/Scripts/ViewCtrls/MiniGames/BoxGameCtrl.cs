@@ -68,6 +68,7 @@ public class BoxGameCtrl : Singleton<BoxGameCtrl>, IMiniGameCtrl
 
     public void BoxGameWin()
     {
+        _onComplete();
         ShowBoxGamePanel(false);
         CramSchoolManager.Instance.ShowBallGameNPCSign(false);
     }

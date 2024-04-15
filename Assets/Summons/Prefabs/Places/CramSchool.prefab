@@ -540,12 +540,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BallGameNPC: {fileID: 8342665524146566732}
-  BallGameNPCSign: {fileID: 967673399200788602}
-  content: {fileID: 5499667647826536014}
+  ballGameCtrl: {fileID: 5499667647826536014}
   ballstart: {fileID: 967673399200788602}
-  canvas: {fileID: 8335573484364415545}
-  completeQuest1: {fileID: 1126524663860390351}
-  statefulContent: {fileID: 0}
 --- !u!1001 &4619366159675943548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -664,11 +660,6 @@ MonoBehaviour:
 --- !u!224 &2381926650340392838 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6995502711905113594, guid: f8418be8006ef1c41a084da8aac55f8b, type: 3}
-  m_PrefabInstance: {fileID: 4619366159675943548}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &8335573484364415545 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 3726358051746555973, guid: f8418be8006ef1c41a084da8aac55f8b, type: 3}
   m_PrefabInstance: {fileID: 4619366159675943548}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5798023753880202200
@@ -854,4 +845,4 @@ MonoBehaviour:
   questInfoText: {fileID: 8541931021688303594}
   score: 0
   scoreTMP: {fileID: 4294139007383180681}
-  winScore: 10
+  winScore: 2
