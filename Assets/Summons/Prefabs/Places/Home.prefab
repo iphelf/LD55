@@ -566,7 +566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6f53a34f63745429ceee45554a7129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ggl: {fileID: 4242584182223913396}
+  canvas: {fileID: 6872942931464877313}
+  cleanGameCtrl: {fileID: 4242584182223913396}
   boxGameCtrl: {fileID: 1357931859854498668}
   cleanstart: {fileID: 3990142006087404737}
   boxstart: {fileID: 4589784902200221907}

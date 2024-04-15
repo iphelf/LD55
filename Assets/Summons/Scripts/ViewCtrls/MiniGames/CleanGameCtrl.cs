@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.MiniGames
 {
-    public class Ggl : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler,IMiniGameCtrl
+    public class CleanGameCtrl : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler,IMiniGameCtrl
     {
         //是否擦除了
         public bool isStartEraser;
@@ -39,7 +39,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         private Vector2 penultPos; //倒数第二个点
         private readonly float radius = 12f;
         private Action _onComplete;
-        [SerializeField] private TMP_Text questInfoText;
+        //[SerializeField] private TMP_Text questInfoText;
         // private bool startDraw;
 
 
@@ -150,9 +150,9 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
                 // Debug.Log("挑战成功");
 
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-                Debug.Log("小游戏完成了");
-                _onComplete();
+                //_onComplete();
                 uiTex.gameObject.SetActive(false);
+                gameObject.SetActive(false);
                 //触发结束事件
                 if (eraserEndEvent != null)
                     eraserEndEvent.Invoke();
@@ -160,7 +160,6 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         }
         public void Setup(QuestArgs args, Action onComplete)
         {
-            questInfoText.text = args.GetType().Name;
             _onComplete = onComplete;
         }
 

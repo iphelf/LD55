@@ -8,7 +8,8 @@ namespace Summons.Scripts.ViewCtrls.Places
 {
     public class HomeCtrl : PlaceCtrlBase
     {
-        [SerializeField] private Ggl ggl;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private CleanGameCtrl cleanGameCtrl;
         [SerializeField] private BoxGameCtrl boxGameCtrl;
         [SerializeField] private Button cleanstart;
         [SerializeField] private Button boxstart;
@@ -16,6 +17,7 @@ namespace Summons.Scripts.ViewCtrls.Places
 
         private void Start()
         {
+            canvas.worldCamera = Camera.main;
             boxstart.onClick.AddListener(() =>
             {
                 if (_running != null) return;
@@ -36,16 +38,16 @@ namespace Summons.Scripts.ViewCtrls.Places
                 var quest = QuestManager.GetNextOngoingQuestOfType(QuestType.WipeStains);
                 if (quest == null) return;
                 _running = quest;
-                ggl.gameObject.SetActive(true);
-                ggl.Setup(quest.Args, () =>
+                cleanGameCtrl.gameObject.SetActive(true);
+                cleanGameCtrl.Setup(quest.Args, () =>
                 {
-                    ggl.gameObject.SetActive(false);
+                    cleanGameCtrl.gameObject.SetActive(false);
                     QuestManager.EndQuest(quest.Id);
                     _running = null;
                 });
             });
             boxGameCtrl.gameObject.SetActive(false);
-            ggl.gameObject.SetActive(false);
+            cleanGameCtrl.gameObject.SetActive(false);
             QuestManager.OnQuestEnd.AddListener(OnQuestEnd);
         }
 
@@ -82,7 +84,7 @@ namespace Summons.Scripts.ViewCtrls.Places
             }
             else if (_running.Type == QuestType.WipeStains)
             {
-                ggl.gameObject.SetActive(false);
+                cleanGameCtrl.gameObject.SetActive(false);
             }
 
             _running = null;
