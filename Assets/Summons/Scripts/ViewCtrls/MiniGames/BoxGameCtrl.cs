@@ -12,9 +12,6 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
 {
     public class BoxGameCtrl : Singleton<BoxGameCtrl>, IMiniGameCtrl
     {
-        [SerializeField] private TMP_Text questInfoText;
-
-        //[SerializeField] private Button completeButton;
         private Action _onComplete;
 
         public void Setup(QuestArgs args, Action onComplete)
