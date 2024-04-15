@@ -1,10 +1,10 @@
-﻿fileFormatVersion: 2
-guid: c403801e9349d994c8ff6bd431e66bf3
+fileFormatVersion: 2
+guid: b73c6907b6099904392df81eb18fc53f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -86686868404713719
-    second: dialog_panel_0
+      213: -2564619566193218763
+    second: classroom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,22 +113,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dialog_panel_0
+      name: classroom_0
       rect:
         serializedVersion: 2
-        x: 315
-        y: 132
-        width: 2102
-        height: 655
+        x: 0
+        y: 0
+        width: 1280
+        height: 960
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 907cb02a0c60ccef0800000000000000
-      internalID: -86686868404713719
+      spriteID: 53b690da714a86cd0800000000000000
+      internalID: -2564619566193218763
       vertices: []
       indices: 
       edges: []
@@ -136,15 +136,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      dialog_panel_0: -86686868404713719
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
