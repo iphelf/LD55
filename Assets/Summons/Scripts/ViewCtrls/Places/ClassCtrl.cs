@@ -2,14 +2,11 @@ using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using Summons.Scripts.ViewCtrls.GameModules;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
     public class ClassCtrl : PlaceCtrlBase
     {
-        [SerializeField] private Button startEnglish;
-        [SerializeField] private Button startMath;
         [SerializeField] private NpcCtrl englishTeacher;
         [SerializeField] private NpcCtrl mathTeacher;
         [SerializeField] private englishClassCtrl englishClassCtrl;

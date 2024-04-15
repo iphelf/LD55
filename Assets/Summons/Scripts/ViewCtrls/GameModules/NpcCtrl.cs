@@ -1,3 +1,4 @@
+using System;
 using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Summons.Scripts.ViewCtrls.GameModules
     public class NpcCtrl : MonoBehaviour
     {
         [SerializeField] private QuestType questType = QuestType.None;
+        [SerializeField] private GameObject questHint;
         private const float ScaleOnHover = 1.03f;
         private Vector3 _baseScale;
         public UnityEvent<QuestInfo> onSummonRespond = new();
@@ -27,9 +29,21 @@ namespace Summons.Scripts.ViewCtrls.GameModules
             }
         }
 
+        private SpriteRenderer _spriteRenderer;
+
         private void Start()
         {
             _baseScale = transform.localScale;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void Update()
+        {
+            if (questHint != null)
+            {
+                var quest = QuestManager.GetNextOngoingQuestOfType(questType);
+                questHint.SetActive(quest is not null);
+            }
         }
 
         private void OnMouseEnter()
@@ -49,9 +63,10 @@ namespace Summons.Scripts.ViewCtrls.GameModules
             if (!_interactable) return;
             var quest = QuestManager.GetNextOngoingQuestOfType(questType);
             if (quest is null || questType == QuestType.PurchaseItem)
-                DialogManager.ShowDefaultMessage(questType);
+                DialogManager.ShowDefaultMessage(questType, _spriteRenderer.sprite);
             else
-                DialogManager.ShowSummonMessage(questType, () => { onSummonRespond.Invoke(quest); });
+                DialogManager.ShowSummonMessage(
+                    questType, _spriteRenderer.sprite, () => { onSummonRespond.Invoke(quest); });
         }
     }
 }

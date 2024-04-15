@@ -33,21 +33,21 @@ namespace Summons.Scripts.Managers
             content.SetActive(false);
         }
 
-        public static void ShowDefaultMessage(QuestType questType, Action onClose = null)
+        public static void ShowDefaultMessage(QuestType questType, Sprite sprite = null, Action onClose = null)
         {
             var npc = _npcDict[questType];
             _instance.content.SetActive(true);
-            // TODO: 根据QuestType选择立绘
+            _instance.portrait.sprite = sprite;
             _instance.dialog.text = npc.DefaultMessage;
             _instance.npcName.text = npc.Name;
             _instance._onClose = onClose;
         }
 
-        public static void ShowSummonMessage(QuestType questType, Action onClose = null)
+        public static void ShowSummonMessage(QuestType questType, Sprite sprite = null, Action onClose = null)
         {
             var npc = _npcDict[questType];
             _instance.content.SetActive(true);
-            // TODO: 根据QuestType选择立绘
+            _instance.portrait.sprite = sprite;
             _instance.dialog.text = npc.SummonMessage;
             _instance.npcName.text = npc.Name;
             _instance._onClose = onClose;
