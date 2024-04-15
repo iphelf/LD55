@@ -116,12 +116,12 @@ TextureImporter:
       name: task_small_0
       rect:
         serializedVersion: 2
-        x: 90
+        x: 88
         y: 585
-        width: 331
+        width: 314
         height: 104
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,14 +136,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7724b9b1782b9f8428230cc7213ea12d
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      task_small_0: 6303120877015242662
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
