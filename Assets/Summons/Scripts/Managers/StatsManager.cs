@@ -43,6 +43,11 @@ namespace Summons.Scripts.Managers
                 return;
             }
 
+            if (_hp == 2)
+            {
+                AudioManager.PlayMusic(MusicKey.Sad);
+            }
+
             heartsCtrl.SetHearts(_hp);
         }
     }

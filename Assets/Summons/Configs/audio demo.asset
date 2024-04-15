@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806991cf75c04dadbd7e2b6e8287feef, type: 3}
   m_Name: audio demo
   m_EditorClassIdentifier: 
+  sfxList: []
+  musicList:
+  - key: 1
+    music: {fileID: 8300000, guid: db4671248831bd140922e5cd2cfdb286, type: 3}
+  - key: 2
+    music: {fileID: 8300000, guid: 172fb77e001338741ab53f365400bff1, type: 3}

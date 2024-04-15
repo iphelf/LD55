@@ -15,6 +15,8 @@ namespace Summons.Scripts.SceneCtrls
             startButton.onClick.AddListener(GameManager.StartGame);
             creditsButton.onClick.AddListener(GameManager.OpenCredits);
             quitButton.onClick.AddListener(GameManager.QuitGame);
+
+            AudioManager.PlayMusic(MusicKey.Happy);
         }
     }
 }

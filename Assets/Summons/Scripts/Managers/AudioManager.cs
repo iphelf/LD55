@@ -13,7 +13,8 @@ namespace Summons.Scripts.Managers
     public enum MusicKey
     {
         None = 0,
-        Title = 1
+        Happy = 1,
+        Sad = 2,
     }
 
     public static class AudioManager
@@ -42,6 +43,8 @@ namespace Summons.Scripts.Managers
             _source.PlayOneShot(sfx);
         }
 
+        private static MusicKey _currentMusic;
+
         public static void PlayMusic(MusicKey key)
         {
             if (!MusicDict.TryGetValue(key, out var music))
@@ -50,7 +53,10 @@ namespace Summons.Scripts.Managers
                 return;
             }
 
+            if (key == _currentMusic) return;
+            _currentMusic = key;
             _source.clip = music;
+            _source.loop = true;
             _source.Play();
         }
     }

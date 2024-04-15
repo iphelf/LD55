@@ -33,6 +33,7 @@ namespace Summons.Scripts.SceneCtrls
 
             if (isGoodEnding)
             {
+                AudioManager.PlayMusic(MusicKey.Happy);
                 goodEndImage.SetActive(true);
                 conclusion.text = goodConclusion;
                 await Awaitable.WaitForSecondsAsync(3.0f);
@@ -41,6 +42,7 @@ namespace Summons.Scripts.SceneCtrls
             }
             else
             {
+                AudioManager.PlayMusic(MusicKey.Sad);
                 conclusion.text = badConclusion;
                 await Awaitable.WaitForSecondsAsync(3.0f);
                 badEndImage.SetActive(true);
