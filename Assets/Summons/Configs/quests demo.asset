@@ -18,124 +18,124 @@ MonoBehaviour:
     delay: 1
     duration: 30
     type: 12
-    args: 
-    description: Home
+    args: 3
+    description: Go home ,pack box
   - id: 1
     predecessors: 00000000
     delay: 0
     duration: 20
     type: 21
     args: 1
-    description: School
+    description: Come to school  ,do English homework
   - id: 2
     predecessors: 00000000
     delay: 0
     duration: 30
     type: 22
     args: 1
-    description: School
+    description: Come to school ,do Math homework
   - id: 3
     predecessors: 0100000002000000
     delay: 0
     duration: 30
     type: 11
-    args: 
-    description: Interest
+    args: 1
+    description: Go home,clean table
   - id: 4
     predecessors: 0200000001000000
     delay: 0
     duration: 40
     type: 41
-    args: 10
-    description: Interest
+    args: 5
+    description: Come to playground ,play volleyball
   - id: 5
     predecessors: 03000000
     delay: 0
-    duration: 30
+    duration: 40
     type: 21
     args: 2
-    description: Interest
+    description: Come to school ,do English homework
   - id: 6
     predecessors: 05000000
     delay: 40
-    duration: 30
+    duration: 80
     type: 21
     args: 3
-    description: Interest
+    description: Come to school ,do English homework
   - id: 7
     predecessors: 05000000
     delay: 0
     duration: 40
     type: 31
-    args: 
-    description: Interest
+    args: 1
+    description: go to the store and buy soy sauce
   - id: 8
     predecessors: 03000000
     delay: 60
     duration: 30
     type: 11
-    args: 
-    description: Interest
+    args: 1
+    description: Go home,clean table
   - id: 9
     predecessors: 08000000
     delay: 30
     duration: 60
     type: 11
-    args: 
-    description: Interest
+    args: 1
+    description: Go home,clean table
   - id: 10
     predecessors: 08000000
     delay: 0
     duration: 40
     type: 31
-    args: 
-    description: Interest
+    args: 2
+    description: go to the store and buy notebook
   - id: 11
     predecessors: 04000000
     delay: 0
-    duration: 30
+    duration: 40
     type: 22
     args: 2
-    description: Interest
+    description: Come to school ,do Math homework
   - id: 12
     predecessors: 0b000000
     delay: 0
-    duration: 40
+    duration: 50
     type: 31
-    args: 
-    description: Interest
+    args: 3
+    description: go to the store and buy Valleyball
   - id: 13
     predecessors: 0b000000
     delay: 30
-    duration: 30
+    duration: 80
     type: 22
     args: 3
-    description: Interest
+    description: Come to school ,do Math homework
   - id: 14
     predecessors: 04000000
     delay: 0
     duration: 60
     type: 12
-    args: 
-    description: Interest
+    args: 6
+    description: 'Go home ,pack '
   - id: 15
     predecessors: 0e000000
     delay: 0
-    duration: 60
+    duration: 80
     type: 12
-    args: 
-    description: Interest
+    args: 9
+    description: Go home ,pack box
   - id: 16
     predecessors: 04000000
     delay: 60
-    duration: 60
+    duration: 40
     type: 41
-    args: 20
-    description: Interest
+    args: 10
+    description: Come to playground ,play volleyball
   - id: 17
     predecessors: 10000000
     delay: 30
-    duration: 60
+    duration: 80
     type: 41
-    args: 30
-    description: Interest
+    args: 15
+    description: Come to playground ,play volleyball
