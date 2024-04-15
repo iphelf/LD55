@@ -8,7 +8,7 @@ namespace Summons.Scripts.SceneCtrls
     public class GameCtrl : MonoBehaviour
     {
         [SerializeField] private PlaceManager placeManager;
-        [SerializeField] private DialogsCtrl dialogsCtrl;
+        [SerializeField] private DialogManager dialogManager;
         [SerializeField] private QuestsCtrl questsCtrl;
         [SerializeField] private MapCtrl mapCtrl;
         [SerializeField] private SummonCtrl summonCtrl;

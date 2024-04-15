@@ -1,5 +1,6 @@
 using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
+using Summons.Scripts.ViewCtrls.GameModules;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,17 +10,17 @@ namespace Summons.Scripts.ViewCtrls.Places
     {
         [SerializeField] private Button startEnglish;
         [SerializeField] private Button startMath;
+        [SerializeField] private NpcCtrl englishTeacher;
+        [SerializeField] private NpcCtrl mathTeacher;
         [SerializeField] private englishClassCtrl englishClassCtrl;
         [SerializeField] private mathClassCtrl mathClassCtrl;
         private QuestInfo _running; // 若不为null，则小游戏正在运行中，且执行的是该任务
 
         private void Start()
         {
-            startEnglish.onClick.AddListener(() =>
+            englishTeacher.onSummonRespond.AddListener(quest =>
             {
                 if (_running != null) return;
-                var quest = QuestManager.GetNextOngoingQuestOfType(QuestType.DoEnglishQuiz);
-                if (quest == null) return;
                 _running = quest;
                 englishClassCtrl.gameObject.SetActive(true);
                 englishClassCtrl.Setup(quest.Args, () =>
@@ -29,11 +30,9 @@ namespace Summons.Scripts.ViewCtrls.Places
                     _running = null;
                 });
             });
-            startMath.onClick.AddListener(() =>
+            mathTeacher.onSummonRespond.AddListener(quest =>
             {
                 if (_running != null) return;
-                var quest = QuestManager.GetNextOngoingQuestOfType(QuestType.DoMathQuiz);
-                if (quest == null) return;
                 _running = quest;
                 mathClassCtrl.gameObject.SetActive(true);
                 mathClassCtrl.Setup(quest.Args, () =>
@@ -50,20 +49,10 @@ namespace Summons.Scripts.ViewCtrls.Places
 
         private void Update()
         {
-            bool showsEnglishEntry = false;
-            bool showsMathEntry = false;
-            if (_running == null)
-            {
-                foreach (var id in QuestManager.OngoingQuests)
-                {
-                    var quest = QuestManager.GetQuestInfo(id);
-                    showsEnglishEntry = showsEnglishEntry || quest.Type == QuestType.DoEnglishQuiz;
-                    showsMathEntry = showsMathEntry || quest.Type == QuestType.DoMathQuiz;
-                }
-            }
-
-            startEnglish.gameObject.SetActive(showsEnglishEntry);
-            startMath.gameObject.SetActive(showsMathEntry);
+            bool allowInput = _running == null;
+            // TODO: 得想一个更全局更自动化的做法
+            englishTeacher.Interactable = allowInput;
+            mathTeacher.Interactable = allowInput;
         }
 
         private void OnDestroy()

@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeManager: {fileID: 297075944}
-  dialogsCtrl: {fileID: 1745333103}
+  dialogManager: {fileID: 1745333103}
   questsCtrl: {fileID: 122904557}
   mapCtrl: {fileID: 1719222681}
   summonCtrl: {fileID: 2132774638}

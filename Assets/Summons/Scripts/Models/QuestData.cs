@@ -11,11 +11,8 @@ namespace Summons.Scripts.Models
         public QuestArgs Args;
         public float Delay;
         public string Description;
-
         public float Duration;
         public float Elapsed = 0.0f;
-        public QuestResult Result;
-
         public QuestType Type;
 
         public QuestData(int id)

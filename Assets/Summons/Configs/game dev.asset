@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questsConfig: {fileID: 11400000, guid: 93550b5ee25c0ee4d9f86cda66e64dab, type: 2}
   placesConfig: {fileID: 11400000, guid: 93bc020213d56c1479581e8146f19fd1, type: 2}
+  npcConfig: {fileID: 11400000, guid: a84ee7d3030c98343b0b7f29b4a9b1da, type: 2}
   titleScene: Title
   creditsScene: Credits
   gameScene: Game

@@ -41,3 +41,17 @@ MonoBehaviour:
     type: 41
     args: 4
     description: Interest
+  - id: 4
+    predecessors: 
+    delay: 0
+    duration: 300
+    type: 11
+    args: 
+    description: Home
+  - id: 5
+    predecessors: 
+    delay: 0
+    duration: 300
+    type: 22
+    args: 1
+    description: Home

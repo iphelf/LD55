@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Summons.Scripts.Data;
 using Summons.Scripts.Models;
-using Summons.Scripts.ViewCtrls;
 using Summons.Scripts.ViewCtrls.Places;
 using UnityEngine;
 

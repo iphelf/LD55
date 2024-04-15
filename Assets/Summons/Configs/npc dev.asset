@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d5d6e2090743af874cf9d9a834f767, type: 3}
+  m_Name: npc dev
+  m_EditorClassIdentifier: 
+  npc:
+  - name: Mother
+    type: 12
+    defaultMessage: Has anyone else summoned you to perform tasks?
+    summonMessage: "Clean up your room right now\uFF01 I expect everything to be
+      in its place and no excuses. We have guests arriving soon, and this mess is
+      unacceptable. Hurry up, Click on your box to get started!"
+  - name: Father
+    type: 11
+    defaultMessage: Has anyone else summoned you to perform tasks?
+    summonMessage: I want that dining table wiped down now! Make sure it's spotless
+      and ready for dinner. Click on the table to get started!
+  - name: English Teacher
+    type: 21
+    defaultMessage: Has anyone else summoned you to perform tasks?
+    summonMessage: "Attention, class! Begin your copy work now! I expect flawless
+      execution\u2014no mistakes allowed. Now, Sit on the left and start your homework!"
+  - name: Math Teacher
+    type: 22
+    defaultMessage: Has anyone else summoned you to perform tasks?
+    summonMessage: Ensure you complete and correctly solve your arithmetic homework
+      immediately. Now, Sit on the right and start your homework!
+  - name: Sports Teacher
+    type: 41
+    defaultMessage: Has anyone else summoned you to perform tasks?
+    summonMessage: Finish your volleyball drills now! I expect everyone to give their
+      best effort and improve their skills before the end of practice. Let's go to
+      the volleyball court and start

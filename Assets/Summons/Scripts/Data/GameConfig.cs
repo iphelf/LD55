@@ -11,6 +11,8 @@ namespace Summons.Scripts.Data
 
         public PlacesConfig placesConfig;
 
+        public NpcConfig npcConfig;
+
         [Header("Scenes")] [Scene] public string titleScene = "Title";
         [Scene] public string creditsScene = "Credits";
         [Scene] public string gameScene = "Game";

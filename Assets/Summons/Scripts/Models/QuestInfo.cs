@@ -8,7 +8,5 @@
         public abstract string Description { get; }
         public abstract QuestType Type { get; }
         public abstract QuestArgs Args { get; }
-
-        // npc
     }
 }

@@ -29,6 +29,7 @@ namespace Summons.Scripts.Managers
             AudioManager.Initialize(_gameConfig.audioConfig, audioSource);
             QuestManager.Reset(_gameConfig.questsConfig);
             PlaceManager.Initialize(_gameConfig.placesConfig);
+            DialogManager.Initialize(_gameConfig.npcConfig);
 
             _initialized = true;
             Debug.Log("Initialized.");
