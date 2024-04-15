@@ -21,7 +21,7 @@ namespace Summons.Scripts.Managers
             Load(_startingPlace);
         }
 
-        public static void Initialize(PlacesConfig config)
+        public static void ResetData(PlacesConfig config)
         {
             PlacePrefabDict.Clear();
             foreach (var entry in config.places)

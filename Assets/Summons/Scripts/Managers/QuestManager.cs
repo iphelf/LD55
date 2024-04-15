@@ -47,7 +47,7 @@ namespace Summons.Scripts.Managers
         public static int RemainingQuestCount { get; private set; }
 
         /// 由GameManager负责初始化/重置
-        public static void Reset(QuestsConfig config)
+        public static void ResetData(QuestsConfig config)
         {
             _questDict = config.ToQuestDict();
 

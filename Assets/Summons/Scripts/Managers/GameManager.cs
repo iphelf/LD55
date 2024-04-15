@@ -27,8 +27,8 @@ namespace Summons.Scripts.Managers
 
             _gameConfig = configuration.gameConfig;
             AudioManager.Initialize(_gameConfig.audioConfig, audioSource);
-            QuestManager.Reset(_gameConfig.questsConfig);
-            PlaceManager.Initialize(_gameConfig.placesConfig);
+            QuestManager.ResetData(_gameConfig.questsConfig);
+            PlaceManager.ResetData(_gameConfig.placesConfig);
             DialogManager.Initialize(_gameConfig.npcConfig);
             StatsManager.Initialize(_gameConfig.initialHp);
 
@@ -47,7 +47,8 @@ namespace Summons.Scripts.Managers
 
         public static void StartGame()
         {
-            QuestManager.Reset(_gameConfig.questsConfig);
+            QuestManager.ResetData(_gameConfig.questsConfig);
+            PlaceManager.ResetData(_gameConfig.placesConfig);
             SceneManager.LoadScene(_gameConfig.gameScene);
         }
 
