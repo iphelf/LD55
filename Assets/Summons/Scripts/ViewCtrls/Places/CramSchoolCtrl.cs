@@ -1,19 +1,20 @@
 using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
-using Summons.Scripts.ViewCtrls.MiniGames;
 using Summons.Scripts.ViewCtrls.MiniGames.BallGame;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.Places
 {
-    public class CramSchoolCtrl :PlaceCtrlBase
-    {// Start is called before the first frame update
+    public class CramSchoolCtrl : PlaceCtrlBase
+    {
+        // Start is called before the first frame update
         [SerializeField] private GameObject BallGameNPC;
 
         [SerializeField] private BallGameCtrl ballGameCtrl;
+
         [SerializeField] private Button ballstart;
+
         //[SerializeField] private Button hideball;
         private QuestInfo _running; // 若不为null，则小游戏正在运行中，且执行的是该任务
 
@@ -36,7 +37,6 @@ namespace Summons.Scripts.ViewCtrls.Places
                 });
                 QuestManager.OnQuestEnd.AddListener(OnQuestEnd);
             });
-
         }
 
         private void Update()
@@ -62,22 +62,26 @@ namespace Summons.Scripts.ViewCtrls.Places
                 ballstart.gameObject.SetActive(false);
                 return;
             }
+
             var questInfo = QuestManager.GetNextOngoingQuestOfType(QuestType.PracticeVolleyball);
-            if (questInfo==null||questInfo.Type != QuestType.PracticeVolleyball) 
+            if (questInfo == null || questInfo.Type != QuestType.PracticeVolleyball)
             {
-                 ballstart.gameObject.SetActive(false);
-                 return;
+                ballstart.gameObject.SetActive(false);
+                return;
             }
-            if(_running==null)ballstart.gameObject.SetActive(true);
+
+            if (_running == null) ballstart.gameObject.SetActive(true);
             else ballstart.gameObject.SetActive(false);
         }
+
         private QuestInfo DetectQuestForMiniGame()
         {
             if (QuestManager.OngoingQuests.Count == 0) return null;
             var questInfo = QuestManager.GetNextOngoingQuestOfType(QuestType.PracticeVolleyball);
-            if (questInfo==null) return null;
+            if (questInfo == null) return null;
             return questInfo;
         }
+
         public override void OnEnterPlace(PlaceState state = null)
         {
             if (state is PlaceStateOfDemoPlace placeStateOfDemoPlace)
@@ -92,6 +96,7 @@ namespace Summons.Scripts.ViewCtrls.Places
             {
             };
         }
+
         private void OnDestroy()
         {
             QuestManager.OnQuestEnd.RemoveListener(OnQuestEnd);
@@ -105,6 +110,7 @@ namespace Summons.Scripts.ViewCtrls.Places
             {
                 ballGameCtrl.gameObject.SetActive(false);
             }
+
             _running = null;
         }
     }
