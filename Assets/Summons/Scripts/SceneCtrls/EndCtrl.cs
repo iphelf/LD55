@@ -7,11 +7,12 @@ namespace Summons.Scripts.SceneCtrls
 {
     public class EndCtrl : MonoBehaviour
     {
-        [SerializeField] private TMP_Text header;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button menuButton;
         [SerializeField] private Button quitButton;
         [SerializeField] private TextMeshProUGUI score;
+        [SerializeField] private GameObject goodEndImage;
+        [SerializeField] private GameObject badEndImage;
 
         private void Start()
         {
@@ -23,7 +24,8 @@ namespace Summons.Scripts.SceneCtrls
                                $"Duration={Mathf.CeilToInt(GameManager.LastGameDuration)}s";
             score.text = scoreText;
             bool isGoodEnding = GameManager.LastGameHp > 0;
-            header.text = isGoodEnding ? "Good Ending" : "Bad Ending";
+            goodEndImage.SetActive(isGoodEnding);
+            badEndImage.SetActive(!isGoodEnding);
         }
     }
 }
