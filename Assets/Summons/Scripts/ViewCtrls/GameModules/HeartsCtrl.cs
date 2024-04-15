@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.GameModules
 {
@@ -15,6 +16,7 @@ namespace Summons.Scripts.ViewCtrls.GameModules
             else if (heartsRoot.childCount < heartCount)
                 for (int i = heartsRoot.childCount; i < heartCount; ++i)
                     Instantiate(heartPrefab, heartsRoot);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(heartsRoot as RectTransform);
         }
     }
 }
