@@ -8,11 +8,14 @@ namespace Summons.Scripts.Data
     public class GameConfig : ScriptableObject
     {
         public QuestsConfig questsConfig;
+
         public PlacesConfig placesConfig;
+
         [Header("Scenes")] [Scene] public string titleScene = "Title";
         [Scene] public string creditsScene = "Credits";
         [Scene] public string gameScene = "Game";
-        [Scene] public string gameOverScene = "GameOver";
+        [Scene] public string endScene = "End";
+
         [Space] public AudioConfig audioConfig;
     }
 }

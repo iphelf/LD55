@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Summons.Scripts.SceneCtrls
 {
-    public class GameOverCtrl : MonoBehaviour
+    public class EndCtrl : MonoBehaviour
     {
         [SerializeField] private Button restartButton;
         [SerializeField] private Button menuButton;
