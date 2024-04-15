@@ -15,10 +15,6 @@ namespace Summons.Scripts.ViewCtrls.Places
         [SerializeField] private Button hideclean;
         [SerializeField] private Button hidebox;
         [SerializeField] private Canvas canvas;
-        [SerializeField] private Button completeQuest1;
-        [SerializeField] private GameObject statefulContent;
-
-        
 
         private void Start()
         {
@@ -28,10 +24,9 @@ namespace Summons.Scripts.ViewCtrls.Places
             hideclean.onClick.AddListener(() => { contentA.gameObject.SetActive(!contentA.gameObject.activeSelf); });
             hidebox.onClick.AddListener(() => { contentB.gameObject.SetActive(!contentB.gameObject.activeSelf); });
             canvas.worldCamera = Camera.main;
-            completeQuest1.onClick.AddListener(() => { QuestManager.EndQuest(1); });
             cleanstart.onClick.AddListener(() =>
             {
-                var questInfo = DetectQuestForMiniGame();
+                var questInfo = QuestManager.GetNextOngoingQuestOfType(QuestType.WipeStains);
                 if (questInfo == null) return;
                 contentA.gameObject.SetActive(true);
                 LaunchMiniGameForQuest(
@@ -40,36 +35,13 @@ namespace Summons.Scripts.ViewCtrls.Places
             });
             boxstart.onClick.AddListener(() =>
             {
-                var questInfo = DetectQuestForMiniGame();
+                var questInfo = QuestManager.GetNextOngoingQuestOfType(QuestType.OrganizeStuff);
                 if (questInfo == null) return;
                 contentB.gameObject.SetActive(true);
                 LaunchMiniGameForQuest(
                     contentB, questInfo, () => { contentB.gameObject.SetActive(false); }
                 );
             });
-        }
-        private QuestInfo DetectQuestForMiniGame()
-        {
-            if (QuestManager.OngoingQuests.Count == 0) return null;
-            int questId = QuestManager.OngoingQuests[0];
-            var questInfo = QuestManager.GetQuestInfo(questId);
-            return questInfo;
-        }
-        public override void OnEnterPlace(PlaceState state = null)
-        {
-            if (state is PlaceStateOfDemoPlace placeStateOfDemoPlace)
-            {
-                var isPresent = placeStateOfDemoPlace.IsPresent;
-                statefulContent.SetActive(isPresent);
-            }
-        }
-
-        public override PlaceState OnExitPlace()
-        {
-            return new PlaceStateOfDemoPlace
-            {
-                IsPresent = statefulContent.activeSelf
-            };
         }
     }
 }
