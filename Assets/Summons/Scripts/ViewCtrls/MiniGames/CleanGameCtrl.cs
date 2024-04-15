@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
+using Summons.Scripts.Models;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.MiniGames
 {
-    public class Ggl : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+    public class Ggl : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler,IMiniGameCtrl
     {
         //是否擦除了
         public bool isStartEraser;
@@ -36,6 +38,8 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         private Texture2D MyTex;
         private Vector2 penultPos; //倒数第二个点
         private readonly float radius = 12f;
+        private Action _onComplete;
+        [SerializeField] private TMP_Text questInfoText;
         // private bool startDraw;
 
 
@@ -146,11 +150,18 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
                 // Debug.Log("挑战成功");
 
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                Debug.Log("小游戏完成了");
+                _onComplete?.Invoke();
                 uiTex.gameObject.SetActive(false);
                 //触发结束事件
                 if (eraserEndEvent != null)
                     eraserEndEvent.Invoke();
             }
+        }
+        public void Setup(QuestArgs args, Action onComplete)
+        {
+            questInfoText.text = args.GetType().Name;
+            _onComplete = onComplete;
         }
 
         #region 事件
