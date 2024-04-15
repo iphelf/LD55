@@ -150,7 +150,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
                 // Debug.Log("挑战成功");
 
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-                //_onComplete();
+                _onComplete();
                 uiTex.gameObject.SetActive(false);
                 gameObject.SetActive(false);
                 //触发结束事件
