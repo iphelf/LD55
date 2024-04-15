@@ -16,6 +16,9 @@ namespace Summons.Scripts.Managers
         /// 任务结束（要么倒计时结束、要么通过小游戏提前完成）
         public static readonly UnityEvent<int> OnQuestEnd = new();
 
+        /// 任务因超时而结束
+        public static readonly UnityEvent<int> OnQuestTimeout = new();
+
         /// 当前正在倒计时的全部任务
         public static readonly List<int> OngoingQuests = new();
 
@@ -35,9 +38,13 @@ namespace Summons.Scripts.Managers
         private static readonly SortedSet<int> NewlyBegunQuests = new(); // delay已完成，即将begin
         private static readonly SortedSet<int> NewlyEndedQuests = new(); // 任务已完成，即将end
         private static readonly SortedSet<int> ManualEndingQuests = new(); // 手动完成任务，将进入NewlyEnded
+        private static readonly SortedSet<int> NewlyTimeoutQuests = new(); // 任务因超时而完成，即将end
 
         /// 任务系统自启动以来总共运行了多少秒
         public static float ElapsedTime { get; private set; }
+
+        /// 剩余任务数量
+        public static int RemainingQuestCount { get; private set; }
 
         /// 由GameManager负责初始化/重置
         public static void Reset(QuestsConfig config)
@@ -55,6 +62,8 @@ namespace Summons.Scripts.Managers
             ManualEndingQuests.Clear();
 
             ElapsedTime = 0.0f;
+
+            RemainingQuestCount = _questDict.Count;
 
             foreach (var quest in _questDict.Values)
             {
@@ -112,6 +121,7 @@ namespace Summons.Scripts.Managers
                 {
                     OngoingQuests.RemoveAt(i);
                     NewlyEndedQuests.Add(quest.Id);
+                    NewlyTimeoutQuests.Add(quest.Id);
                 }
             }
         }
@@ -126,6 +136,13 @@ namespace Summons.Scripts.Managers
 
             NewlyBegunQuests.Clear();
 
+            foreach (var questId in NewlyTimeoutQuests)
+            {
+                OnQuestTimeout.Invoke(questId);
+            }
+
+            NewlyTimeoutQuests.Clear();
+
             foreach (var questId in NewlyEndedQuests)
             {
                 OnQuestEnd.Invoke(questId);
@@ -137,6 +154,7 @@ namespace Summons.Scripts.Managers
                 }
             }
 
+            RemainingQuestCount -= NewlyEndedQuests.Count;
             NewlyEndedQuests.Clear();
         }
 

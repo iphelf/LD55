@@ -23,6 +23,7 @@ namespace Summons.Scripts.Managers
 
         public static void Initialize(PlacesConfig config)
         {
+            PlacePrefabDict.Clear();
             foreach (var entry in config.places)
                 PlacePrefabDict.Add(entry.type, entry.placePrefab);
             _startingPlace = config.startingPlace;

@@ -12,6 +12,7 @@ namespace Summons.Scripts.SceneCtrls
         [SerializeField] private QuestsCtrl questsCtrl;
         [SerializeField] private MapCtrl mapCtrl;
         [SerializeField] private SummonCtrl summonCtrl;
+        [SerializeField] private StatsManager statsManager;
 
         private PlaceType _summonTarget;
 

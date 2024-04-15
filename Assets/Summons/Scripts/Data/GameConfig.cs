@@ -7,6 +7,8 @@ namespace Summons.Scripts.Data
     [CreateAssetMenu(menuName = "Scriptable Object/Game Config", fileName = "game")]
     public class GameConfig : ScriptableObject
     {
+        public int initialHp = 4;
+
         public QuestsConfig questsConfig;
 
         public PlacesConfig placesConfig;

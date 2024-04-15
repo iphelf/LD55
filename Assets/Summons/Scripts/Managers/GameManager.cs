@@ -30,6 +30,7 @@ namespace Summons.Scripts.Managers
             QuestManager.Reset(_gameConfig.questsConfig);
             PlaceManager.Initialize(_gameConfig.placesConfig);
             DialogManager.Initialize(_gameConfig.npcConfig);
+            StatsManager.Initialize(_gameConfig.initialHp);
 
             _initialized = true;
             Debug.Log("Initialized.");
@@ -46,6 +47,7 @@ namespace Summons.Scripts.Managers
 
         public static void StartGame()
         {
+            QuestManager.Reset(_gameConfig.questsConfig);
             SceneManager.LoadScene(_gameConfig.gameScene);
         }
 
@@ -56,7 +58,21 @@ namespace Summons.Scripts.Managers
 
         #endregion
 
-        #region Game Over
+        #region Game
+
+        public static float LastGameDuration { get; private set; }
+        public static int LastGameHp { get; private set; }
+
+        public static void EndGame(float duration, int hp)
+        {
+            LastGameDuration = duration;
+            LastGameHp = hp;
+            SceneManager.LoadScene(_gameConfig.endScene);
+        }
+
+        #endregion
+
+        #region End
 
         public static void ReturnToTitle()
         {
