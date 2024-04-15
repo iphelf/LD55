@@ -62,8 +62,11 @@ namespace Summons.Scripts.Models
 
     public class QuestArgsOfOrganizeStuff : QuestArgs
     {
+        public readonly int WinScore;
+
         public QuestArgsOfOrganizeStuff(string args) : base(args)
         {
+            WinScore = int.Parse(args);
         }
     }
 

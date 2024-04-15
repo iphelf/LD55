@@ -16,7 +16,28 @@ MonoBehaviour:
   - id: 0
     predecessors: 
     delay: 0
-    duration: 30
+    duration: 300
+    type: 21
+    args: 1
+    description: School
+  - id: 1
+    predecessors: 
+    delay: 0
+    duration: 300
+    type: 31
+    args: 3
+    description: Shop
+  - id: 2
+    predecessors: 
+    delay: 0
+    duration: 300
     type: 12
-    args: 
+    args: 3
     description: Home
+  - id: 3
+    predecessors: 
+    delay: 0
+    duration: 300
+    type: 41
+    args: 4
+    description: Interest
