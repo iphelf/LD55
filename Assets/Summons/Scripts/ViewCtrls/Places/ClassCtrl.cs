@@ -11,7 +11,7 @@ namespace Summons.Scripts.ViewCtrls.Places
         [SerializeField] private Button startMath;
         [SerializeField] private englishClassCtrl englishClassCtrl;
         [SerializeField] private mathClassCtrl mathClassCtrl;
-        private QuestInfo _running;
+        private QuestInfo _running; // 若不为null，则小游戏正在运行中，且执行的是该任务
 
         private void Start()
         {
