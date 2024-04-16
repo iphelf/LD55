@@ -103,7 +103,7 @@ MonoBehaviour:
     duration: 50
     type: 31
     args: 3
-    description: Coach:Buy Valleyball
+    description: Coach:Buy Basketball
   - id: 13
     predecessors: 0b000000
     delay: 60
