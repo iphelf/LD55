@@ -797,8 +797,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 317152094}
   m_HandleRect: {fileID: 317152093}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.607403
+  m_Value: 0
+  m_Size: 0.9999987
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1364,9 +1364,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1960840818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 897.5, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 897.5, y: -398.99963}
   m_SizeDelta: {x: 1795, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891865748
@@ -1389,47 +1389,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Credits Content
-
-
-
-    Credits Content
-
-    Credits Content
-
-    Credits
-    Content
-
-    Credits Content
-
-
-
-    Credits Content
-
-    Credits Content
-
-    Credits
-    Content
-
-    Credits Content
-
-
-
-    Credits Content
-
-    Credits Content
-
-
-
-    Credits
-    Content
-
-    Credits Content
-
-    Credits Content'
+  m_text: "Programmer: iphelf, Flewbimo, 233, \u4E00\u53EA\u6D77\u9E25\n\r\nArt and
+    Visual Design: Q, \u9E3D\u5B50, \u85AF\u7247\r\n\nSound and Music: XX\r\n\nGame
+    Design: All of us\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 004c49899ec912449981871463387395, type: 2}
+  m_sharedMaterial: {fileID: -2916242829791001839, guid: 004c49899ec912449981871463387395, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
