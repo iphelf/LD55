@@ -1,4 +1,5 @@
 using System;
+using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using Summons.Scripts.ViewCtrls.MiniGames;
 using TMPro;
@@ -37,6 +38,7 @@ namespace Summons.Scripts.ViewCtrls.Places
                     inputsum += answer[0];
                     changeText.text = inputsum;
                     answer = answer.Remove(0, 1);
+                    AudioManager.PlaySfx(SfxKey.TypeGameType);
                     // Debug.Log(changeText.text);
                 }
 

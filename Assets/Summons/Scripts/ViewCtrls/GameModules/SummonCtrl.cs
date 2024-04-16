@@ -1,3 +1,4 @@
+using Summons.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -72,6 +73,7 @@ namespace Summons.Scripts.ViewCtrls.GameModules
             content.SetActive(true);
             // 开启交互进度条
             _running = true;
+            AudioManager.PlaySfx(SfxKey.RunGame);
         }
     }
 }

@@ -61,6 +61,7 @@ namespace Summons.Scripts.ViewCtrls.GameModules
         private void OnMouseUpAsButton()
         {
             if (!_interactable) return;
+            AudioManager.PlaySfx(SfxKey.SceneInteractiveClick);
             var quest = QuestManager.GetNextOngoingQuestOfType(questType);
             if (quest is null || questType == QuestType.PurchaseItem)
                 DialogManager.ShowDefaultMessage(questType, _spriteRenderer.sprite);

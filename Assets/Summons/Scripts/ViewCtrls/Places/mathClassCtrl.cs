@@ -1,4 +1,5 @@
 using System;
+using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using Summons.Scripts.ViewCtrls.MiniGames;
 using TMPro;
@@ -105,9 +106,11 @@ namespace Summons.Scripts.ViewCtrls.Places
 
         private void checkAnswer()
         {
+            AudioManager.PlaySfx(SfxKey.MiniGameClick);
             if (answerText.text.Replace(" ", "") == answer)
             {
                 score++;
+                AudioManager.PlaySfx(SfxKey.MiniGameScore);
                 // Debug.Log("答案正确");
             }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Summons.Scripts.Managers;
 using Summons.Scripts.Models;
 using TMPro;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Summons.Scripts.ViewCtrls.MiniGames
 {
-    public class CleanGameCtrl : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler,IMiniGameCtrl
+    public class CleanGameCtrl : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IMiniGameCtrl
     {
         //是否擦除了
         public bool isStartEraser;
@@ -38,6 +39,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         private Texture2D MyTex;
         private Vector2 penultPos; //倒数第二个点
         private readonly float radius = 12f;
+
         private Action _onComplete;
         //[SerializeField] private TMP_Text questInfoText;
         // private bool startDraw;
@@ -150,6 +152,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
                 // Debug.Log("挑战成功");
 
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                AudioManager.PlaySfx(SfxKey.Wipe);
                 _onComplete();
                 uiTex.gameObject.SetActive(false);
                 gameObject.SetActive(false);
@@ -158,6 +161,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
                     eraserEndEvent.Invoke();
             }
         }
+
         public void Setup(QuestArgs args, Action onComplete)
         {
             _onComplete = onComplete;

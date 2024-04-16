@@ -37,6 +37,7 @@ namespace Summons.Scripts.Managers
         private void OnQuestTimeout(int id)
         {
             _hp = Mathf.Max(0, _hp - 1);
+            AudioManager.PlaySfx(SfxKey.MissionFail);
             if (_hp == 0)
             {
                 GameManager.EndGame(QuestManager.ElapsedTime, _hp);

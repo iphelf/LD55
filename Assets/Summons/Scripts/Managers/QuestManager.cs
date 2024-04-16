@@ -91,6 +91,7 @@ namespace Summons.Scripts.Managers
                 {
                     NewlyEndedQuests.Add(OngoingQuests[i]);
                     OngoingQuests.RemoveAt(i);
+                    AudioManager.PlaySfx(SfxKey.MiniGameWin);
                 }
 
             ManualEndingQuests.Clear();

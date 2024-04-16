@@ -1,3 +1,4 @@
+using Summons.Scripts.Managers;
 using UnityEngine;
 
 namespace Summons.Scripts.ViewCtrls.MiniGames.BoxGame
@@ -42,9 +43,14 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BoxGame
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if ((type == Type.Book && other.CompareTag("BookBox")) || (type == Type.Cloth && other.CompareTag("ClothBox"))
+            if ((type == Type.Book && other.CompareTag("BookBox")) || (type == Type.Cloth &&
+                                                                       other.CompareTag("ClothBox"))
                                                                    || (type == Type.Toy && other.CompareTag("ToyBox")))
+            {
                 BoxGameCtrl.Instance.AddScore(1);
+                AudioManager.PlaySfx(SfxKey.MiniGameScore);
+            }
+
             movespeedX = moveSpeed;
             movespeedY = 0;
             GravityAddSpeed = 0;
@@ -57,7 +63,11 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BoxGame
             Movement.x += movespeedX * Time.deltaTime;
             Movement.y += movespeedY * Time.deltaTime;
             transform.position = new Vector3(Movement.x, Movement.y, 0);
-            if (Input.GetKeyDown(KeyCode.Space)) Rotate();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                AudioManager.PlaySfx(SfxKey.MiniGameClick);
+                Rotate();
+            }
             //if (moveY - Time.deltaTime >= 0)
         }
 

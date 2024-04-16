@@ -85,6 +85,7 @@ namespace Summons.Scripts.ViewCtrls.Places
 
             if (success)
             {
+                AudioManager.PlaySfx(SfxKey.SceneInteractiveClick);
                 _buttonDict[item].gameObject.SetActive(false);
                 _state.PurchasedItems.Add(item);
             }

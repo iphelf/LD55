@@ -1,4 +1,5 @@
 using System.Collections;
+using Summons.Scripts.Managers;
 using UnityEngine;
 
 namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
@@ -46,6 +47,8 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
                 movespeedY = -moveSpeed * movespeedY;
                 //Debug.Log($"({11})");
                 BallGameCtrl.Instance.AddScore(1);
+                AudioManager.PlaySfx(SfxKey.Basketball);
+                AudioManager.PlaySfx(SfxKey.MiniGameScore);
             }
 
             if (other.CompareTag("Panel"))

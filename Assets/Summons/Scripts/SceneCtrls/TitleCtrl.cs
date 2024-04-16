@@ -12,9 +12,21 @@ namespace Summons.Scripts.SceneCtrls
 
         private void Start()
         {
-            startButton.onClick.AddListener(GameManager.StartGame);
-            creditsButton.onClick.AddListener(GameManager.OpenCredits);
-            quitButton.onClick.AddListener(GameManager.QuitGame);
+            startButton.onClick.AddListener(() =>
+            {
+                AudioManager.PlaySfx(SfxKey.MainMenuClick);
+                GameManager.StartGame();
+            });
+            creditsButton.onClick.AddListener(() =>
+            {
+                AudioManager.PlaySfx(SfxKey.MainMenuClick);
+                GameManager.OpenCredits();
+            });
+            quitButton.onClick.AddListener(() =>
+            {
+                AudioManager.PlaySfx(SfxKey.MainMenuClick);
+                GameManager.QuitGame();
+            });
 
             AudioManager.PlayMusic(MusicKey.Happy);
         }
