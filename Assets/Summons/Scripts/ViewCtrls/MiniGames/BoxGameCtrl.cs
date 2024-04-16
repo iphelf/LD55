@@ -41,7 +41,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         private void Update()
         {
             if (score >= winScore) BoxGameWin();
-            scoreTMP.text = "Score:" + score;
+            scoreTMP.text = $"Score: {score}/{winScore}";
             if (Time.time > nextAddSpeedTime)
             {
                 AllItemAddSpeed();

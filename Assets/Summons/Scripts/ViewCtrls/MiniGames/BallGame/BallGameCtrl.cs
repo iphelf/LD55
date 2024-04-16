@@ -9,8 +9,6 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
 {
     public class BallGameCtrl : Singleton<BallGameCtrl>, IMiniGameCtrl
     {
-        [SerializeField] private TMP_Text questInfoText;
-
         //[SerializeField] private Button completeButton;
         private Action _onComplete;
 
@@ -32,7 +30,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
         private void Update()
         {
             DetectGameOver();
-            scoreTMP.text = "Score:" + score;
+            scoreTMP.text = $"Score: {score}/{winScore}";
         }
 
         public void AddScore(int addscore)
@@ -75,11 +73,6 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BallGame
         public void DetectGameOver()
         {
             if (score >= winScore) BallGameWin();
-        }
-
-        public void SetQuestInfo(string quest)
-        {
-            questInfoText.text = quest;
         }
     }
 }
