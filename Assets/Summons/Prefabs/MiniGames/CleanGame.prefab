@@ -211,7 +211,7 @@ MonoBehaviour:
   isStartEraser: 0
   isEndEraser: 0
   uiTex: {fileID: 5829777179771585841}
-  brushSize: 20
+  brushSize: 40
   rate: 90
 --- !u!114 &4717777502309823382
 MonoBehaviour:
