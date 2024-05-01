@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      run_mini_road_0: 6007484892703940770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

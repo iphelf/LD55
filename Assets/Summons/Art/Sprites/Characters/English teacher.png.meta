@@ -167,7 +167,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      English teacher_0: -8203384970234852585
+      English teacher_1: -4863306327940269602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
