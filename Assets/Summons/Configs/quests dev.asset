@@ -16,7 +16,7 @@ MonoBehaviour:
   - id: 0
     predecessors: 
     delay: 0
-    duration: 300
+    duration: 5
     type: 21
     args: 1
     description: School
@@ -44,7 +44,7 @@ MonoBehaviour:
   - id: 4
     predecessors: 
     delay: 0
-    duration: 300
+    duration: 10
     type: 11
     args: 
     description: Home
