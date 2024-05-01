@@ -43,6 +43,9 @@ namespace Summons.Scripts.ViewCtrls.MiniGames.BoxGame
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.GetComponent<Item>() != null) return;
+            if (!gameObject.activeSelf) return;
+            // Debug.Log($"{nameof(OnTriggerEnter2D)}({gameObject.name}, {other.gameObject.name})");
             if ((type == Type.Book && other.CompareTag("BookBox")) || (type == Type.Cloth &&
                                                                        other.CompareTag("ClothBox"))
                                                                    || (type == Type.Toy && other.CompareTag("ToyBox")))

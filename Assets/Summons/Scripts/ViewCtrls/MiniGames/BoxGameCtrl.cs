@@ -33,8 +33,14 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
         // Start is called before the first frame update
         private void Start()
         {
-            ItemList[newItemID()].gameObject.SetActive(true);
+            SendNextItem();
             nextAddSpeedTime = Time.deltaTime + IncreaseAddSpeedTime;
+        }
+
+        private void SendNextItem()
+        {
+            // Debug.Log(nameof(SendNextItem));
+            ItemList[newItemID()].gameObject.SetActive(true);
         }
 
         // Update is called once per frame
@@ -83,7 +89,7 @@ namespace Summons.Scripts.ViewCtrls.MiniGames
             item.Movement = item.StartPosition;
             item.ResetMoveSpeedX();
             yield return new WaitForSeconds(2f);
-            ItemList[newItemID()].gameObject.SetActive(true);
+            SendNextItem();
         }
 
         public int newItemID()
